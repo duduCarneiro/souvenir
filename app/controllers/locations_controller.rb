@@ -5,8 +5,8 @@ class LocationsController < ApplicationController
         {
           lat: location.latitude,
           lng: location.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { location: location })
-        #   image_url: helpers.asset_url("car_icon.png")
+          info_window: render_to_string(partial: "info_window", locals: { location: location }),
+          image_url: helpers.asset_url("cam_icon.png")
 
         }
     end
