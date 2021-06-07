@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #for Benjamin
 gem 'bigdecimal'
 gem 'digest'
+
+#map
+gem 'geocoder'
