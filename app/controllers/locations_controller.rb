@@ -15,7 +15,6 @@ class LocationsController < ApplicationController
         }
     end
   end
-end
 #{cl_image_tag(location.albums.first.photos.first.key)}
 # cl_image_tag(Location.first.albums.first.photos.first.key)
 # cl_image_path(Location.first.albums.first.photos.first.key)
@@ -25,3 +24,32 @@ end
 # cl_image_path(me42ildp9bm0g2ytzz3w2dhlk4pr)
 # cl_image_tag("me42ildp9bm0g2ytzz3w2dhlk4pr",
 #       width: 400, height: 300, crop: :fill)
+
+  def show
+    @location = Location.find(params[:id])
+    @comment = Comment.find(params[:id])
+  end
+
+  def new
+    @location = Location.new
+    @location.albums.build
+    @location.comments.build
+  end
+
+  def create
+    
+    @location = Location.new(location_params)
+    @location.user = current_user
+    if @location.save
+      redirect_to location_path(@location), notice: "Experience created"
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def location_params
+      params.require(:location).permit(:name, :address, albums_attributes: [photos: []], comments_attributes: [:text])
+  end
+end

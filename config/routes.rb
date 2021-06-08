@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :locations, except: :index do
     resources :albums, only: [:new, :create]
     resources :comments, only: [:new, :create]
-  end
+  end  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
