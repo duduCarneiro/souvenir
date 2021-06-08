@@ -7,7 +7,6 @@ class LocationsController < ApplicationController
           lat: location.latitude,
           lng: location.longitude,
           image_url: helpers.asset_url('http://res.cloudinary.com/dii4d3v8r/image/upload/e771xoeam8aemjijplblnezgsm9c'),
-          info_window: render_to_string(partial: "info_window", locals: { location: location })
           # @photo = cl_image_tag("l1j908vsqjnxe4z1khsnxv0qcbrd"),
           # cl_image_tag location.albums.first.photos.first.key
 
