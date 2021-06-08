@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  resources :locations do
+  root to: 'locations#home'
+  resources :locations, except: :index do
     resources :albums, only: [:new, :create]
     resources :comments, only: [:new, :create]
   end  
