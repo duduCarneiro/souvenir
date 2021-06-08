@@ -67,3 +67,7 @@ gem 'digest'
 
 #map
 gem 'geocoder'
+
+
+#cloudinary
+gem 'cloudinary', '~> 1.16.0'
