@@ -25,23 +25,21 @@ places.each do |element|
     puts "place id: #{location.id}- location: #{location.address}"
     count +=1
     puts "(#{count} of #{places.count} done)"
-    puts '.'
 end
 
 puts 'creating fakes albums'
-images = ['https://www.revistafullpower.com.br/wp-content/uploads/2020/11/ci01.jpg',
-            'https://http2.mlstatic.com/D_NQ_NP_846954-MLB45640268040_042021-O.webp',
-            'https://http2.mlstatic.com/D_NQ_NP_913422-MLB45779341320_052021-O.webp',
-            'https://http2.mlstatic.com/D_NQ_NP_861510-MLB45704225506_042021-O.webp', 
-            'https://http2.mlstatic.com/D_NQ_NP_927856-MLB45855074197_052021-O.webp']
+images = ['https://claudia.abril.com.br/wp-content/uploads/2020/01/familia-feliz-40589-1.jpg?quality=85&strip=info',
+            'https://www.webventure.com.br/wp-content/uploads/2018/10/1_6q1-rTOP10j1qV9A7ACm_g.jpeg',
+            'http://s2.glbimg.com/X3JS3jXmtCn2DgPTt5L3daCsI9I=/620x453/e.glbimg.com/og/ed/f/original/2017/05/22/safari_wilderness_ranch_family_views_ostrich_3_compressed_.jpg',
+            'https://estrelaguianews.com.br/wp-content/uploads/2018/03/A-51.jpg', 
+            'https://www.omelhordavida.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/a/familia-brincando-38501-editada.jpg']
 sum = 0
 images.each do |element|
-    album = Album.create!(date: rand(10).years.ago, location_id: Location.first.id)
-    puts "album id: #{album.id}- location: #{album.date}"
+    album = Album.create!(date: rand(10).years.ago, location_id: Location.first.id + sum)
+    puts "album id: #{album.id}- date: #{album.date}"
     file = open(images[sum])
-    album.picture.attach(io: file, filename: 'some-image.jpg')
-    count +=1
-    puts "(#{sum} of #{Album.count} done)"
-    puts '.'
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of #{images.count} done)"
 end
 puts 'done'
