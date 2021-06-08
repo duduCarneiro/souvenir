@@ -1,0 +1,11 @@
+<%= simple_form_for @location do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.simple_fields_for :albums do |album_f| %>
+        <%= album_f.input :photos, as: :file, input_html: { multiple: true } %>
+    <% end %>
+    <%= f.simple_fields_for :comments do |comment_f| %>
+        <%= comment_f.input :text %>
+    <% end %>
+    <%= f.submit "Create location" %>
+<% end %>
