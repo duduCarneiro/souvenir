@@ -27,7 +27,8 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @comment = Comment.find(params[:id])
+    @comments = Comment.where("location_id = ? ", params[:id]) 
+    @albums = Album.where("location_id = ? ", params[:id]) 
   end
 
   def new
@@ -50,6 +51,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-      params.require(:location).permit(:name, :address, albums_attributes: [photos: []], comments_attributes: [:text])
+      params.require(:location).permit(:name, :address, :albums_attributes => [:date, :_destroy, photos: []] ,comments_attributes: [:text, :date, :_destroy])
   end
 end

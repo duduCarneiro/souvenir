@@ -1,7 +1,15 @@
 <h2><%= @location.name %></h2>
 
-      <p>Situated at: <%= @location.address %></p>
+<p>Situated at: <%= @location.address %></p>
 
-      <p>Comments: <%= @comment.text %></p>
+<% @comments.each do |comment| %>
+  <p>Comments:  <%= comment.text %></p>
+<% end %>
+<% @albums.each do |album| %>
+  <% album.photos.each do  |photo|  %>
+    <%= cl_image_tag photo.key  %>
+  <% end %>
+<% end %>
+
 
       
