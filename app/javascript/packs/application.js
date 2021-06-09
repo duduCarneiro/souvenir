@@ -11,9 +11,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initIalize } from '../plugins/init_Ialize';
 import { previewImageOnFileSelect  }  from '../plugins/photo_preview' ;
-import { initAutocomplete }  from '../plugins/init_autocomplete' ;
-initAutocomplete
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -42,7 +42,8 @@ document.addEventListener('turbolinks:load', () => {
 //maps
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
+  initAutocomplete();
+  initIalize();
   previewImageOnFileSelect();
   initAutocomplete();
 })
