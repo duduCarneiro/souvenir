@@ -4,8 +4,10 @@ class LocationsController < ApplicationController
 
     @markers = @locations.map do |element|
       {
+      idlocation: element.id,
       lat: element.latitude,
-      lng: element.longitude
+      lng: element.longitude,
+      main_image: element.albums.first.photos.first.key
     }
     end
 
@@ -25,15 +27,7 @@ class LocationsController < ApplicationController
     #     }
     # end
 
-#{cl_image_tag(location.albums.first.photos.first.key)}
-# cl_image_tag(Location.first.albums.first.photos.first.key)
-# cl_image_path(Location.first.albums.first.photos.first.key)
-# "me42ildp9bm0g2ytzz3w2dhlk4pr"
-# cl_image_tag("me42ildp9bm0g2ytzz3w2dhlk4pr")
-# cl_image_path("me42ildp9bm0g2ytzz3w2dhlk4pr")
-# cl_image_path(me42ildp9bm0g2ytzz3w2dhlk4pr)
-# cl_image_tag("me42ildp9bm0g2ytzz3w2dhlk4pr",
-#       width: 400, height: 300, crop: :fill)
+
 
   def show
     @location = Location.find(params[:id])

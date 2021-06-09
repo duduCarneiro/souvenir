@@ -16,7 +16,7 @@
 <!---------------------------------------------------------------------------------------------------------->
 
 <script src="https://www.webglearth.com/v2/api.js"></script>
-    <script>
+    <%# <script>
       function initialize() {
         var earth = new WE.map('earth_div');
         earth.setView([46.8011, 8.2266], 2);
@@ -44,16 +44,13 @@
         var marker0 = document.getElementById("test");
         console.log(marker0);
        // var marker = WE.marker([51.5, -0.09]).addTo(earth);
-        var marker2 = WE.marker([30.058056, 31.228889], "https://res.cloudinary.com/dii4d3v8r/image/upload/v1623175479/zi4fmodnlxlsvdj63scrfdjuqyho.jpg", 100, 50).addTo(earth);
-        var marker3 = WE.marker([37.058056, -2.228889], "https://res.cloudinary.com/dii4d3v8r/image/upload/v1623175486/oqbhpw6v4pkhfrkqjtqk1xkb753e.jpg", 100, 50).addTo(earth);
-        var marker8 = WE.marker([30.058056, -4.228889], "https://res.cloudinary.com/dii4d3v8r/image/upload/v1623176294/to4wb6nhssera4wnkfl63pogvncx.jpg", 100, 50).addTo(earth);
 
         var markerCustom = WE.marker([500, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
         }
       
-    </script>
+    </script> %>
     <style type="text/css">
-      html, body{padding: 0; margin: 0; background-color: "../assets/images/galaxy_starfield.png"; }
+      html, body{padding: 0; margin: 0; }
       #earth_div{top: 0; right: 0; bottom: 0; left: 0;
                  position: absolute !important;            
       }
@@ -65,7 +62,8 @@
 
   </head>
 
-  <body onload="initialize()">
+  <!--<body onload="initialize()">--> 
+  <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 

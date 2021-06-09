@@ -3,22 +3,43 @@
 <div>
   <h3>Locations from databases</h3>
   <ul>
-    <div id='test' data-markers="<%=@markers.to_json%>"></div>
 
-    <% @locations.each do |element| %>
-    <li><%= element.address %></li>
-    <li><%= element.latitude %></li>
-    <li><%= element.longitude %></li>
-      <%element.albums.each do |subelement|%>
-        <li><%=cl_image_tag((subelement.photos.first.key),
-        width: 400, height: 300, crop: :fill)%> </li>
-      <% end %>
-    <% end %>
+
+    <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
+    <%# <% @locations.each do |element| %>
+      <%# <%@selectedmarkers = @markers.select {|x| x[:idlocation] == element.id }%>
+      <%# <%@selectedmarkers.each do |subelement|%>
+        <%# <script>WE.marker([subelement.lat, subelement.lng]).addTo(earth);</script> %>
+      <%# <% end %> 
+    <%# <% end %>
+    
+      <% @locations.each do |element| %>
+        <div class="border border-warning">
+          <li><%= element.address %></li>
+          <li><%= element.latitude %></li>
+          <li><%= element.longitude %></li>
+            <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id }%>
+            
+            <%@selectedmarkers.each do |subelement|%>
+              <%= subelement%>
+
+              <script>console.log('parariparara')</script>
+              <script>WE.marker([subelement.lat, subelement.lng]).addTo(earth);</script>
+            <% end %>
+            
+            <%element.albums.each do |subelement|%>
+              <li><%=cl_image_tag((subelement.photos.first.key),
+              width: 150, height: 110, crop: :fill)%> </li>
+            <% end %>
+        </div>
+      <% end %>  
+      
+
   </ul>
 
-  <%= cl_image_tag("2bf0oq5x39tl80tcekezxv9kyp89", width: 400, height: 300, crop: :fill) %>
+  <%= cl_image_tag("e771xoeam8aemjijplblnezgsm9c", width: 400, height: 300, crop: :fill)%>
 
-  <%= cl_image_path(Location.first.albums.first.photos.first.key) %>  
+  <%= cl_image_path(Location.first.albums.first.photos.first.key) %>
 </div>
 
 
