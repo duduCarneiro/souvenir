@@ -11,9 +11,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application' %>
 
-
-
-
+<!---------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------->
 
 <script src="https://www.webglearth.com/v2/api.js"></script>
     <script>
@@ -35,17 +35,20 @@
             var c = earth.getPosition();
             var elapsed = before? now - before: 0;
             before = now;
-            earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
+            earth.setCenter([c[0], c[1] + 0.1*(elapsed/60)]);
             requestAnimationFrame(animate);
         });
 
         // Markers
+        
         var marker = WE.marker([51.5, -0.09]).addTo(earth);
+        var marker2 = WE.marker([30.058056, 31.228889], "https://res.cloudinary.com/dii4d3v8r/image/upload/v1623175479/zi4fmodnlxlsvdj63scrfdjuqyho.jpg", 100, 50).addTo(earth);
+        const marker3 = WE.marker([37.058056, -2.228889], "https://res.cloudinary.com/dii4d3v8r/image/upload/v1623175486/oqbhpw6v4pkhfrkqjtqk1xkb753e.jpg", 100, 50).addTo(earth);
+        const marker8 = WE.marker([30.058056, -4.228889], "https://res.cloudinary.com/dii4d3v8r/image/upload/v1623176294/to4wb6nhssera4wnkfl63pogvncx.jpg", 100, 50).addTo(earth);
 
-        var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
-
-        var markerCustom = WE.marker([50, -9], cl_image_path("2bf0oq5x39tl80tcekezxv9kyp89") %>, 100, 24).addTo(earth);        
-      }
+        var markerCustom = WE.marker([500, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
+        }
+      
     </script>
     <style type="text/css">
       html, body{padding: 0; margin: 0; background-color: black; }
@@ -54,10 +57,10 @@
                  
       }
     </style>
-    <title>WebGL Earth API: Custom Tiles</title>
 
-
-
+<!---------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------->
 
   </head>
 

@@ -1,19 +1,26 @@
 
 
   <div>
-  <h3>Locations from database</h3>
+  <h3>Locations from databases</h3>
+  <script>console.log('Hello')</script>
+  <script type="text/javascript">console.log("testeS");</script> 
+    <h3>Locations from databases</h3>
+
   <ul>
   <% @locations.each do |element| %>
-  <li><%= element.address %></li>
-  <%element.albums.each do |subelement|%>
-  <li><%=cl_image_tag((subelement.photos.first.key),
-    width: 400, height: 300, crop: :fill)%> </li>
-  <% end %>
+    <li><%= element.address %></li>
+    <li><%= element.latitude %></li>
+    <li><%= element.longitude %></li>
+    <script>let marker = WE.marker([element.latitude, element.longitude]).addTo(earth);</script>
 
+
+    <%element.albums.each do |subelement|%>
+      <li><%=cl_image_tag((subelement.photos.first.key),
+        width: 400, height: 300, crop: :fill)%> </li>
+    <% end %>
   <% end %>
   </ul>
-  <%= cl_image_tag("2bf0oq5x39tl80tcekezxv9kyp89",
-    width: 400, height: 300, crop: :fill) %>
+  <%= cl_image_tag("2bf0oq5x39tl80tcekezxv9kyp89", width: 400, height: 300, crop: :fill) %>
 
   <%= cl_image_path(Location.first.albums.first.photos.first.key) %>  
   </div>
