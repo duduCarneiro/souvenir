@@ -1,0 +1,24 @@
+<li class="control-group nested-fields">
+  <div class="controls  mb-3">
+    <div class="mb-2"> 
+      <%= f.input :photos, input_html: { multiple: true }, 
+                          input_html: { class: 'd-none', id: 'photo-input'},                      
+                          label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'
+      %>
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+    </div>
+
+
+    <%= f.date_select  :date,
+                 {
+                 order: [:day, :month, :year],
+                 start_year: Date.today.year,
+                 end_year: Date.today.year - 100,
+                 },
+                {class: 'custom-style'} %>
+
+    <%= link_to_remove_association "remove", f %>
+
+  </div>
+
+</li>
