@@ -46,14 +46,14 @@
         var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
         marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
 
-        var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);        
+        var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
       }
     </script>
     <style type="text/css">
-      html, body{padding: 0; margin: 0; background-color: black; }
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0;
+      html, body{padding: 0; margin: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; width: 90%; height: 90%;
                  position: absolute !important;
-                 
+
       }
     </style>
     <title>WebGL Earth API: Custom Tiles</title>
