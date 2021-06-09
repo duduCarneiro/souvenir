@@ -1,11 +1,35 @@
+
 <%= simple_form_for @location do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.simple_fields_for :albums do |album_f| %>
-        <%= album_f.input :photos, as: :file, input_html: { multiple: true } %>
-    <% end %>
-    <%= f.simple_fields_for :comments do |comment_f| %>
-        <%= comment_f.input :text %>
-    <% end %>
-    <%= f.submit "Create location" %>
+    <div class="container">
+        <div class="field">
+            <%= f.input :name %>
+            <%= f.input :address %>
+
+            <%= link_to_add_association 'Add Comments', f, :comments,
+                'data-association-insertion-node' => "#comments ol",
+                'data-association-insertion-method' => "append" %>
+            <%= link_to_add_association 'Add Albums', f, :albums,
+                'data-association-insertion-node' => "#albums ol",
+                'data-association-insertion-method' => "append" %> 
+
+            <fieldset id='comments'>
+                <ol>
+                    <%= f.fields_for :comments do |comment| %>    
+                        <%= render partial: "comment_fields", locals: { f: comment} %>
+                    <% end %>
+                </ol>
+            </fieldset>
+
+            <fieldset id='albums'>
+                <ol>
+                    <%= f.simple_fields_for :albums do |album| %>    
+                        <%= render partial: "album_fields", locals: { f: album} %>
+                    <% end %>
+                </ol>
+            </fieldset>
+        </div>
+        <div class="actions">
+            <%= f.submit "Create location" %>
+        </div>
+    </div>
 <% end %>
