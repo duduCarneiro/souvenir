@@ -49,20 +49,3 @@ export { initMapbox };
 
 
 
-
-<h3>Locations from database</h3>
-<ul>
-  <% @locations.each do |element| %>
-    <li><%= element.address %></li>
-    <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
-    <% @selectedmarkers.each do |subelement| %>
-      <% subelement[:ppic] = cl_image_path(subelement[:kpic]) %>
-    <% end %>
-    <%element.albums.each do |subpelement|%>
-      <li><%=cl_image_tag((subpelement.photos.first.key),
-        width: 150, height: 110, crop: :fill)%> </li>
-    <% end %>
-  <% end %>
-
-  <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
-</ul>
