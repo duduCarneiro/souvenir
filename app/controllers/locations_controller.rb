@@ -12,7 +12,6 @@ class LocationsController < ApplicationController
      }
     end
   end
-
   def show
     @location = Location.find(params[:id])
     @comments = Comment.where("location_id = ? ", params[:id]) 
