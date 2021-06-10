@@ -1,10 +1,11 @@
 .footer {
-  background: black;
+  background: rgb(58, 247, 11);
   height: 100px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(226, 27, 27, 0.3);
   width: 100%;
   position: sticky;
   bottom: 0;
+  margin-top: -100px;
 }
 .footer-links {
   display: flex;
