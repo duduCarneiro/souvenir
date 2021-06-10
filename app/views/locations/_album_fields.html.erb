@@ -1,10 +1,8 @@
 <li class="control-group nested-fields">
   <div class="controls  mb-3">
     <div class="mb-2"> 
-      <%= f.input :photos, input_html: { multiple: true }, 
-                          input_html: { class: 'd-none', id: 'photo-input'},                      
-                          label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'
-      %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input' }, 
+                          label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
       <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
     </div>
 
