@@ -1,23 +1,12 @@
 
 
-<h3>Locations from database</h3>
 <ul>
   <% @locations.each do |element| %>
-    <li><%= element.address %></li>
     <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
     <% @selectedmarkers.each do |subelement| %>
-      <%= subelement[:kpic]%>
       <% if subelement[:kpic]%>
-      <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
-      <% end %>
-      
-      <%= subelement[:ppic]%>
-    <% end %>
-    <%element.albums.each do |subpelement|%>
-      <% if subpelement.photos.first.try(:key) %>
-        <li><%= cl_image_tag(subpelement.photos.first.key, width: 150, height: 110, crop: :fill) %> </li>
-      <% end %>
-        
+        <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
+      <% end %>      
     <% end %>
   <% end %>
 
@@ -25,6 +14,33 @@
 </ul>
 
 <div id="earth_div"></div>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+
 
  
 
