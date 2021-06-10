@@ -10,7 +10,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initIalize } from '../plugins/init_Ialize';
 import { previewImageOnFileSelect  }  from '../plugins/photo_preview' ;
@@ -42,7 +41,6 @@ document.addEventListener('turbolinks:load', () => {
 //maps
 
 document.addEventListener('turbolinks:load', () => {
-  initAutocomplete();
   initIalize();
   previewImageOnFileSelect();
   initAutocomplete();
