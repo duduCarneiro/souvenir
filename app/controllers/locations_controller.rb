@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
       idlocation: element.id,
       lat: element.latitude,
       lng: element.longitude,
-      kpic: element.albums.first.photos.first.key,
+      kpic: element.albums.first.photos.first.try(:key),
       ppic: ''
      }
     end
