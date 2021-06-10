@@ -3,10 +3,10 @@ function initIalize() {
   const earthDiv = document.getElementById("earth_div")
   if (earthDiv) {
     var earth = new WE.map('earth_div');
-    earth.setView([46.8011, 8.2266], 2);
+    earth.setView([15.8011, 1.2266], 1.2);
     WE.tileLayer('https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg', {
       tileSize: 256,
-      bounds: [[-85, -180], [85, 180]],
+      bounds: [[-85000, -180], [50005, 180]],
       minZoom: 0,
       maxZoom: 16,
       attribution: 'WebGLEarth example',
