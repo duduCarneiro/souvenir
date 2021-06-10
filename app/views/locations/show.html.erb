@@ -7,7 +7,7 @@
 <% end %>
 <% @albums.each do |album| %>
   <% album.photos.each do  |photo|  %>
-    <%= cl_image_tag photo.key  %>
+    <%= cl_image_tag photos.key, height: 300, width: 400, crop: :limit %> 
   <% end %>
 <% end %>
 
