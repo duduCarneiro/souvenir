@@ -3,44 +3,13 @@
   <h3>Locations from database</h3>
   <ul>
 
-
-    
-    <%# <% @locations.each do |element| %>
-      <%# <%@selectedmarkers = @markers.select {|x| x[:idlocation] == element.id }%>
-      <%# <%@selectedmarkers.each do |subelement|%>
-        <%# <script>WE.marker([subelement.lat, subelement.lng]).addTo(earth);</script> %>
-      <%# <% end %> 
-    <%# <% end %>
-    
-      <% @locations.each do |element| %>
-        <div class="border border-warning">
-          <li><%= element.address %></li>
-          <li><%= element.latitude %></li>
-          <li><%= element.longitude %></li>
-            <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id }%>
-            
-            
-            <%element.albums.each do |subelement|%>
-              <li><%=cl_image_tag((subelement.photos.first.key),
-              width: 150, height: 110, crop: :fill)%> </li>
-            <% end %>
-        </div>
-      <% end %>  
-      <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
-  </ul>
-
-  
-<h3>Locations from database</h3>
 <ul>
   <% @locations.each do |element| %>
-    <li><%= element.address %></li>
     <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
     <% @selectedmarkers.each do |subelement| %>
-      <% subelement[:ppic] = cl_image_path(subelement[:kpic]) %>
-    <% end %>
-    <%element.albums.each do |subpelement|%>
-      <li><%=cl_image_tag((subpelement.photos.first.key),
-        width: 150, height: 110, crop: :fill)%> </li>
+      <% if subelement[:kpic]%>
+        <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
+      <% end %>      
     <% end %>
   <% end %>
 
@@ -48,6 +17,33 @@
 </ul>
 
 <div id="earth_div"></div>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+<p>slkfjaslkfsadlkfj</p>
+
 
  
 
