@@ -14,7 +14,7 @@ html {
 body {
     background-image: url("galaxy_starfield.png");
     color: grey;
-    min-height: 100% !important;
+    position: relative;
 }
 
 #earth_div{
@@ -23,9 +23,4 @@ body {
     top: 0; right: 0; bottom: 0; left: 0;
     min-height: 200vh !important;
     position: absolute;
-}
-.container-maste {
-    display: flex;
-    position: absolute;
-
 }
