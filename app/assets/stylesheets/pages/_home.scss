@@ -18,8 +18,10 @@ body {
 }
 
 #earth_div{
-    top: 1000; right: 0; bottom: 0; left: 0;
-    min-height: 100vh !important;
+    padding-top: 120px;
+
+    top: 0; right: 0; bottom: 0; left: 0;
+    min-height: 200vh !important;
     position: absolute;
 }
 .container-maste {

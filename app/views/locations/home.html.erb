@@ -1,21 +1,22 @@
 
-  
 
-
-<ul>
   <% @locations.each do |element| %>
     <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
     <% @selectedmarkers.each do |subelement| %>
       <% if subelement[:kpic]%>
         <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
-      <% end %>      
+      <% end %>
     <% end %>
   <% end %>
 
   <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
-</ul>
+
 
 <div id="earth_div"></div>
+
+<div class="cards" id="result">
+
+</div>
 
 
 

@@ -74,3 +74,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 #para multiplos campos no forms
 gem "cocoon"
+
+
+#search bar
+gem 'pg_search', '~> 2.3.0'
