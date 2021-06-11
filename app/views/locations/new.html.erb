@@ -3,7 +3,7 @@
     <%= simple_form_for @location do |f| %>
         <div class="field" style="width: 50%;">
             <%= f.input :name %>
-            <%= f.input :address, class: "test" %>
+            <%= f.input :address %>
 
             <%= link_to_add_association 'Add Comments', f, :comments,
                 'data-association-insertion-node' => "#comments ol",
