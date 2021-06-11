@@ -11,7 +11,17 @@ class LocationsController < ApplicationController
       ppic: ''
      }
     end
+
+    if params[:query].present?
+      @albums = Album.global_search(params[:query]).order(created_at: :desc)
+      @comments = Comment.global_search(params[:query]).order(created_at: :desc)
+    else
+      @albums = Album.all.order(created_at: :desc)
+      @comments = Comment.all.order(created_at: :desc)
+    end
+
   end
+  
   def show
     @location = Location.find(params[:id])
     @comments = Comment.where("location_id = ? ", params[:id]) 
