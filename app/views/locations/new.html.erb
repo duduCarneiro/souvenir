@@ -1,10 +1,9 @@
-
-
-<div class="container">
+<div class="background-color" style="background-color: #58585B; width: 80%; margin: 0 auto; padding-bottom: 20px; margin-top: 60px; ">
+<div class="container" style="color: black;">
     <%= simple_form_for @location do |f| %>
-        <div class="field">
+        <div class="field" style="width: 50%;">
             <%= f.input :name %>
-            <%= f.input :address %>
+            <%= f.input :address, class: "test" %>
 
             <%= link_to_add_association 'Add Comments', f, :comments,
                 'data-association-insertion-node' => "#comments ol",
@@ -12,7 +11,7 @@
 
             <fieldset id='comments'>
                 <ol>
-                    <%= f.fields_for :comments do |comment| %>    
+                    <%= f.fields_for :comments do |comment| %>
                         <%= render partial: "comment_fields", locals: { f: comment} %>
                     <% end %>
                 </ol>
@@ -20,11 +19,11 @@
 
              <%= link_to_add_association 'Add Photos', f, :albums,
                 'data-association-insertion-node' => "#albums ol",
-                'data-association-insertion-method' => "append" %> 
+                'data-association-insertion-method' => "append" %>
 
             <fieldset id='albums'>
                 <ol>
-                    <%= f.simple_fields_for :albums do |album| %>    
+                    <%= f.simple_fields_for :albums do |album| %>
                         <%= render partial: "album_fields", locals: { f: album} %>
                     <% end %>
                 </ol>
@@ -33,6 +32,7 @@
         <div class="actions">
             <%= f.submit "Create Experience" %>
         </div>
-    
+
     <% end %>
+</div>
 </div>
