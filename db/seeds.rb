@@ -35,11 +35,20 @@ images = ['https://claudia.abril.com.br/wp-content/uploads/2020/01/familia-feliz
             'https://www.omelhordavida.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/a/familia-brincando-38501-editada.jpg']
 sum = 0
 images.each do |element|
-    album = Album.create!(date: rand(10).years.ago, location_id: Location.first.id + sum)
-    puts "album id: #{album.id}- date: #{album.date}"
+    album = Album.create!(date: rand(5).years.ago, location_id: Location.first.id + sum)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}"
     file = open(images[sum])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
     puts "(#{sum} of #{images.count} done)"
+end
+
+verbis = ['Mussum Ipsum, cacilds vidis litro abertis.', 'Manduma pindureta quium dia nois paga.', 'Interagi no mé, cursus quis, vehicula ac nisi.', 'Admodum accumsan disputationi eu sit.', 'Vide electram sadipscing et per.', 'Praesent malesuada urna nisi, quis volutpat erat hendrerit non.', 'Nam vulputate dapibus.']
+i = 0
+verbis.each do |element|
+    comment = Comment.create!(date: rand(5).years.ago, text: element, location_id: rand(Location.first.id..Location.last.id))
+    puts "comment id: #{comment.id}- comment: #{comment.text}- date: #{comment.date}- location: #{comment.location_id}"
+    count +=1
+    puts "(#{count} of #{verbis.count} done)"
 end
 puts 'done'

@@ -1,22 +1,35 @@
 
 
-  <% @locations.each do |element| %>
-    <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
-    <% @selectedmarkers.each do |subelement| %>
-      <% if subelement[:kpic]%>
-        <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
-      <% end %>
+<% @locations.each do |element| %>
+  <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
+  <% @selectedmarkers.each do |subelement| %>
+    <% if subelement[:kpic]%>
+      <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
+
+<div class="cards" id="result">
+  <% @albums.each do |album| %>
+    <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
+    <% if album.photos.attached? %>
+      <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+    <% end %>
+  <% end %>
+  <% @comments.each do |comment| %>
+    <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
+    <% if comment.text? %>
+      <p><%=comment.text%></p>
     <% end %>
   <% end %>
 
-  <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
 
+</div>
 
 <div id="earth_div"></div>
 
-<div class="cards" id="result">
-
-</div>
 
 
 
