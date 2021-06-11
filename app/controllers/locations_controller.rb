@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   def home
     @locations = Location.all
+  
 
     @markers = @locations.map do |element|
       {

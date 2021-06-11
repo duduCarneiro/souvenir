@@ -11,19 +11,29 @@
 
 <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
 
-<div class="cards" id="result">
-  <% @albums.each do |album| %>
-    <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
-    <% if album.photos.attached? %>
-      <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+<% @locations.each do |location| %>
+  <div class="cards" id="result">
+    <% @albums.each do |album| %>
+        <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
+        <% if album.photos.attached? %>
+          <%= link_to location_path(album.location) do %>
+            <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+          <% end %>
+        <% end %>
     <% end %>
-  <% end %>
-  <% @comments.each do |comment| %>
-    <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
-    <% if comment.text? %>
-      <p><%=comment.text%></p>
-    <% end %>
-  <% end %>
+<% end %>
+
+
+ <div class="comment ml-2">
+  <% @comments.each do  |comment|  %>
+  <div class="card-product">
+  <i class="fas fa-file-alt"></i>
+    <div class="card-product-infos">
+      <h2><%= comment.text %></h2>
+    </div>
+  </div>
+  <% end %> 
+</div>
 
 
 </div>

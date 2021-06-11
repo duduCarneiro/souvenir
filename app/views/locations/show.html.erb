@@ -3,7 +3,7 @@
   <% @albums.each do |album| %>
     <ul >
       <% album.photos.each do  |photo|  %>
-        <li  >
+        <li>
           <div class="cards">
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(photo.key)%>)">
                 <ul class="d-flex list-unstyled mt-auto pl-1 pr-1">
