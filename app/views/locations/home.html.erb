@@ -26,28 +26,31 @@
 
 
 <% if params[:query].present? %>
-  <div id="earth_div"></div>
+  <div id="earth_div" style = "min-height: 78vh;"> </div>
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
 <% end %>
 
 
-<div class="cards" id="result">
-  <div class="cards-itens">
-    <% if params[:query].present? %>
-      <% @albums.each do |album| %>
-        <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
-        <% if album.photos.attached? %>
-          <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+  
+    <div class="cards-itens">
+      <% if params[:query].present? %>
+        <% @albums.each do |album| %>
+          <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
+          <% if album.photos.attached? %>
+            <%= link_to location_path(album.location) do %>
+              <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+            <% end %>
+          <% end %>
+        <% end %>
+        <% @comments.each do |comment| %>
+          <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
+          <% if comment.text? %>
+            <p style = "font-style: italic;"><%="'#{comment.text}'"%></p>
+          <% end %>
         <% end %>
       <% end %>
-      <% @comments.each do |comment| %>
-        <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
-        <% if comment.text? %>
-          <p style = "font-style: italic;"><%="'#{comment.text}'"%></p>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
+    </div>
+ 
 
 </div>
