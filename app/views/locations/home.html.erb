@@ -26,13 +26,13 @@
 
 
 <% if params[:query].present? %>
-  <div id="earth_div"></div>
+  <div id="earth_div" style = "min-height: 78vh;"> </div>
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
 <% end %>
 
 
-  <% @locations.each do |location| %>
+  
     <div class="cards-itens">
       <% if params[:query].present? %>
         <% @albums.each do |album| %>
@@ -51,6 +51,6 @@
         <% end %>
       <% end %>
     </div>
-  <% end %>
+ 
 
 </div>
