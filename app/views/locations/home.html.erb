@@ -1,4 +1,17 @@
-
+<div class="search" style="display: flex;">
+  <div style="width: 300px; margin-right: 3px;">
+<%= form_tag root_path(anchor: "result"), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a memory"
+  %>
+  </div>
+  <div style="margin-top: 20px;">
+  <%= submit_tag "Search", class: "btn btn-warning" %>
+<% end %>
+  </div>
+</div>
 
 <% @locations.each do |element| %>
   <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
