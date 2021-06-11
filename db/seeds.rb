@@ -17,8 +17,8 @@ puts 'creating fake user'
 first_user = User.create(password: '123456', email: 'ze@ninguem.com')
 
 puts 'creating fakes locations'
-places = ['Lagoa, Rio de Janeiro', 'Botafogo, Rio de Janeiro', 'Humaitá, Rio de Janeiro',
-        'Ipanema, Rio de Janeiro', 'Tijuca, Rio de Janeiro']
+places = ['Ipanema, Rio de Janeiro', 'Avenue Montaigne, Paris', 'Aoyama, Tokyo',
+        'Newlands, Capetown', 'Time Square, New York']
 count = 0
 places.each do |element|
     location = Location.create!(address: element, user_id: first_user.id)
@@ -28,27 +28,77 @@ places.each do |element|
 end
 
 puts 'creating fakes albums'
-images = ['https://claudia.abril.com.br/wp-content/uploads/2020/01/familia-feliz-40589-1.jpg?quality=85&strip=info',
-            'https://www.webventure.com.br/wp-content/uploads/2018/10/1_6q1-rTOP10j1qV9A7ACm_g.jpeg',
-            'http://s2.glbimg.com/X3JS3jXmtCn2DgPTt5L3daCsI9I=/620x453/e.glbimg.com/og/ed/f/original/2017/05/22/safari_wilderness_ranch_family_views_ostrich_3_compressed_.jpg',
-            'https://estrelaguianews.com.br/wp-content/uploads/2018/03/A-51.jpg', 
-            'https://www.omelhordavida.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/a/familia-brincando-38501-editada.jpg']
+images = ['https://source.unsplash.com/800x450/?ipanema,rio',
+            'https://source.unsplash.com/800x450/?montaigne,paris',
+            'https://source.unsplash.com/800x450/?aoyama,tokyo',
+            'https://source.unsplash.com/800x450/?newlands,capetown', 
+            'https://source.unsplash.com/800x450/?timesquare,newyork']
+
 sum = 0
-images.each do |element|
-    album = Album.create!(date: rand(5).years.ago, location_id: Location.first.id + sum)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}"
-    file = open(images[sum])
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 0)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Ipanema, Rio de Janeiro"
+    file = open(images[0])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of #{images.count} done)"
+    puts "(#{sum} of 25 done)"
 end
+
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 1)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Montaigne, Paris"
+    file = open(images[1])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of 25 done)"
+end
+
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 2)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Aoyama, Tokyo"
+    file = open(images[2])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of 25 done)"
+end
+
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 3)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- New Lands, Cape Town"
+    file = open(images[3])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of 25 done)"
+end
+
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 4)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Times Square, New York"
+    file = open(images[4])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of 25 done)"
+end
+
+
+
+
+
+# images.each do |element|
+#     album = Album.create!(date: rand(2).years.ago, location_id: Location.first.id + sum)
+#     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}"
+#     file = open(images[sum])
+#     album.photos.attach(io: file, filename: 'some-image.jpg')
+#     sum +=1
+#     puts "(#{sum} of #{images.count} done)"
+# end
 
 verbis = ['Mussum Ipsum, cacilds vidis litro abertis.', 'Manduma pindureta quium dia nois paga.', 'Interagi no mé, cursus quis, vehicula ac nisi.', 'Admodum accumsan disputationi eu sit.', 'Vide electram sadipscing et per.', 'Praesent malesuada urna nisi, quis volutpat erat hendrerit non.', 'Nam vulputate dapibus.']
 i = 0
 verbis.each do |element|
-    comment = Comment.create!(date: rand(5).years.ago, text: element, location_id: rand(Location.first.id..Location.last.id))
+    comment = Comment.create!(date: rand(24).months.ago, text: element, location_id: rand(Location.first.id..Location.last.id))
     puts "comment id: #{comment.id}- comment: #{comment.text}- date: #{comment.date}- location: #{comment.location_id}"
-    count +=1
-    puts "(#{count} of #{verbis.count} done)"
+    i +=1
+    puts "(#{i} of #{verbis.count} done)"
 end
 puts 'done'
