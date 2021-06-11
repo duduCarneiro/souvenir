@@ -1,13 +1,13 @@
 
 
-  <% @locations.each do |element| %>
-    <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
-    <% @selectedmarkers.each do |subelement| %>
-      <% if subelement[:kpic]%>
-        <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
-      <% end %>
+<% @locations.each do |element| %>
+  <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
+  <% @selectedmarkers.each do |subelement| %>
+    <% if subelement[:kpic]%>
+      <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
     <% end %>
   <% end %>
+<% end %>
 
   <div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
 
@@ -15,7 +15,12 @@
 <div id="earth_div"></div>
 
 <div class="cards" id="result">
-
+  <% @albums.each do |album| %>
+    <%# <%= link_to album do %>
+    <% if album.photos.attached? %>
+      <div id="card_home" class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path album.photos.first.key %>);">
+    <% end %>
+  <% end %>
 </div>
 
 
