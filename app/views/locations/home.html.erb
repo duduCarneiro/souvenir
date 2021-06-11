@@ -1,4 +1,17 @@
-
+<div class="search" style="display: flex;">
+  <div style="width: 300px; margin-right: 3px;">
+<%= form_tag root_path(anchor: "result"), method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a memory"
+  %>
+  </div>
+  <div style="margin-top: 20px;">
+  <%= submit_tag "Search", class: "btn btn-warning" %>
+<% end %>
+  </div>
+</div>
 
 <% @locations.each do |element| %>
   <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
@@ -15,7 +28,7 @@
   <% @albums.each do |album| %>
     <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
     <% if album.photos.attached? %>
-      <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+      <img src=<%= cl_image_path album.photos.first.key %> > <!--a principio so aparece a primeira photo de cada album. Melhorar depois-->
     <% end %>
   <% end %>
   <% @comments.each do |comment| %>
