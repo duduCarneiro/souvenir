@@ -21,7 +21,6 @@
                         <li class="d-flex align-items-center me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
                           <small> <%= @location.address %>  </small>
-                        </li>
                       </ul>
                     
                   </div>
@@ -44,6 +43,8 @@
     <div class="card-product-infos">
       <h2><%= comment.text %></h2>
       <p><%= @location.address %></p>
+      <p><%= comment.date %></p>
+
     </div>
   </div>
   <% end %> 
