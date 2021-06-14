@@ -1,25 +1,30 @@
 class LocationsController < ApplicationController
   def home
-    @locations = Location.all
-  
-
-    @markers = @locations.map do |element|
-      {
-      idlocation: element.id,
-      lat: element.latitude,
-      lng: element.longitude,
-      kpic: element.albums.first.photos.first.try(:key),
-      ppic: ''
-     }
-    end
-
     if params[:query].present?
+      @locations = Location.global_search(params[:query])
       @albums = Album.global_search(params[:query]).order(created_at: :desc)
       @comments = Comment.global_search(params[:query]).order(created_at: :desc)
-    # else
+
+    else
+    @locations = Location.all
     #   @albums = Album.all.order(created_at: :desc)
     #   @comments = Comment.all.order(created_at: :desc)
     end
+  
+
+    @markers = @locations.geocoded.map do |location|
+      {
+      # idlocation: location.id,
+      lat: location.latitude,
+      lng: location.longitude,
+      image_url: helpers.asset_url('cam_icon.png')
+      # kpic: location.albums.first.photos.first.try(:key),
+      # ppic: ''
+     }
+    end
+
+    
+
 
   end
   

@@ -30,57 +30,76 @@ end
 puts 'creating fakes albums'
 images = ['https://source.unsplash.com/800x450/?ipanema,rio',
             'https://source.unsplash.com/800x450/?montaigne,paris',
-            'https://source.unsplash.com/800x450/?aoyama,tokyo',
+            'https://source.unsplash.com/800x450/?lesinvalides,paris',
+            'https://source.unsplash.com/800x450/?notredame,paris',
             'https://source.unsplash.com/800x450/?newlands,capetown', 
-            'https://source.unsplash.com/800x450/?timesquare,newyork']
+            'https://source.unsplash.com/800x450/?timesquare,newyork',
+            'https://source.unsplash.com/800x450/?aoyama,tokyo'
+        ]
 
 sum = 0
-5.times do
+2.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 0)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Ipanema, Rio de Janeiro"
     file = open(images[0])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 25 done)"
+    puts "(#{sum} of 38 done)"
 end
 
-5.times do
+10.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 1)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Montaigne, Paris"
     file = open(images[1])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 25 done)"
+    puts "(#{sum} of 38 done)"
 end
 
-5.times do
+10.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 2)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Aoyama, Tokyo"
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Les Invalides, Paris"
     file = open(images[2])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 25 done)"
+    puts "(#{sum} of 38 done)"
 end
 
-5.times do
+10.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 3)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- New Lands, Cape Town"
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Notre Dame, Paris"
     file = open(images[3])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 25 done)"
+    puts "(#{sum} of 38 done)"
 end
 
-5.times do
+2.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 4)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Times Square, New York"
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- New Lands, Cape Town"
     file = open(images[4])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 25 done)"
+    puts "(#{sum} of 38 done)"
 end
 
+2.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 5)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Times Square, New York"
+    file = open(images[5])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of 38 done)"
+end
 
+2.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 6)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Aoyama, Tokyo"
+    file = open(images[6])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    puts "(#{sum} of 38 done)"
+end
 
 
 

@@ -1,6 +1,6 @@
 <div class="search" style="display: flex;">
   <div style="width: 300px; margin-right: 3px;">
-<%= form_tag root_path(anchor: "result"), method: :get do %>
+<%= form_tag root_path(anchor: "map"), method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -13,17 +13,16 @@
   </div>
 </div>
 
-<% @locations.each do |element| %>
-  <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
-  <% @selectedmarkers.each do |subelement| %>
-    <% if subelement[:kpic]%>
-      <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
-    <% end %>
-  <% end %>
-<% end %>
+<%# <% @locations.each do |element| %>
+  <%# <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
+  <%# <% @selectedmarkers.each do |subelement| %>
+    <%# <% if subelement[:kpic]%>
+      <%# <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
+    <%# <% end %>
+  <%# <% end %>
+<%# <% end %>
 
-<div id='allmarkers' data-markers=<%=@markers.to_json%>></div>
-
+<%# <div id='allmarkers' data-markers=<%=@markers.to_json></div> %>
 
 <% if params[:query].present? %>
   <div id="earth_div" style = "min-height: 78vh;"> </div>
@@ -32,25 +31,43 @@
 <% end %>
 
 
+<% unless (@albums.nil? || @albums.empty?) && (@comments.nil? || @comments.empty?)%>
+  <div id="map"
+      style="width: 100%; height: 200px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+<% end %>
+
+
+
+
+
+
+
   
-    <div class="cards-itens">
-      <% if params[:query].present? %>
-        <% @albums.each do |album| %>
-          <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
-          <% if album.photos.attached? %>
-            <%= link_to location_path(album.location) do %>
-              <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
-            <% end %>
-          <% end %>
-        <% end %>
-        <% @comments.each do |comment| %>
-          <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
-          <% if comment.text? %>
-            <p style = "font-style: italic;"><%="'#{comment.text}'"%></p>
-          <% end %>
+<div class="cards-itens">
+  <% if params[:query].present? %>
+    <% @albums.each do |album| %>
+              <p> <%= album.date %></p>
+              <p> <%= album.location_id %> </p>
+      <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
+      <% if album.photos.attached? %>
+        <%= link_to location_path(album.location) do %>
+          <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
+
+
         <% end %>
       <% end %>
-    </div>
- 
+    <% end %>
+    <% @comments.each do |comment| %>
+      <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
+      <% if comment.text? %>
+        <p style = "font-style: italic;"><%="'#{comment.text}' #{comment.date}"%></p>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
 
 </div>
