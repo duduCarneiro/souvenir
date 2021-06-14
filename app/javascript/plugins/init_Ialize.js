@@ -20,23 +20,24 @@ function initIalize() {
         var c = earth.getPosition();
         var elapsed = before? now - before: 0;
         before = now;
-        earth.setCenter([c[0], c[1] + 0.1*(elapsed/10)]);
+        earth.setCenter([c[0], c[1] + 0.1*(elapsed/40)]);
         requestAnimationFrame(animate);
     });
 
     // Markers
-    const markersall = document.getElementById("allmarkers");
-    const markersarray = markersall.dataset.markers;
-    console.log(markersarray);
+    // const markersall = document.getElementById("allmarkers");
+    // const markersarray = markersall.dataset.markers;
+    // console.log(markersarray);
 
-    JSON.parse(markersarray).forEach((pin) => {
-      console.log(pin.idlocation);
-      WE.marker([pin.lat, pin.lng], pin.ppic, 50, 20).addTo(earth);
-    });
+    // JSON.parse(markersarray).forEach((pin) => {
+    //   console.log(pin.idlocation);
+    //   WE.marker([pin.lat, pin.lng, -5000], pin.ppic, 50, 20).addTo(earth);
+    // });
 
 
     console.log("done");
     var markerCustom = WE.marker([500, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
+
 
   }
 
