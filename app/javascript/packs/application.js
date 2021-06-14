@@ -33,6 +33,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initIalize } from '../plugins/init_Ialize';
 import { previewImageOnFileSelect  }  from '../plugins/photo_preview' ;
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSmooth } from '../plugins/init_smooth';
 
 //maps
 
@@ -41,5 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initAutocomplete();
   initMapbox();
+  // initSmooth();
+
 })
 

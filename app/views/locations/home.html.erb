@@ -1,15 +1,20 @@
+
+
+
+
 <div class="search" style="display: flex;">
   <div style="width: 300px; margin-right: 3px;">
-<%= form_tag root_path(anchor: "map"), method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a memory"
-  %>
+    <%= form_tag root_path, method: :get do %>
+    <%# <%= form_tag root_path(anchor: "map"), method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a memory"
+    %>
   </div>
-  <div style="margin-top: 20px;">
-  <%= submit_tag "Search", class: "btn btn-warning" %>
-<% end %>
+  <div id= "firstquery"  style="margin-top: 20px;">
+    <%= submit_tag "Search", class: "btn btn-warning" %>
+    <% end %>
   </div>
 </div>
 
@@ -26,6 +31,19 @@
 
 <% if params[:query].present? %>
   <div id="earth_div" style = "min-height: 78vh;"> </div>
+
+    <script>
+      const element = document.getElementById("firstquery");
+      element.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log(event);
+
+        document.querySelector('#map').scrollIntoView({
+        behavior: 'smooth'
+        });
+      });
+    </script>
+
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
 <% end %>
@@ -49,8 +67,8 @@
 <div class="cards-itens">
   <% if params[:query].present? %>
     <% @albums.each do |album| %>
-              <p> <%= album.date %></p>
-              <p> <%= album.location_id %> </p>
+              <%# <p> <%= album.date </p>%>
+              <%# <p> <%= album.location_id </p>%> 
       <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
       <% if album.photos.attached? %>
         <%= link_to location_path(album.location) do %>
@@ -63,11 +81,8 @@
     <% @comments.each do |comment| %>
       <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
       <% if comment.text? %>
-        <p style = "font-style: italic;"><%="'#{comment.text}' #{comment.date}"%></p>
+        <p style = "font-style: italic;"><%="'#{comment.text}'"%></p>
       <% end %>
     <% end %>
   <% end %>
-</div>
-
-
 </div>
