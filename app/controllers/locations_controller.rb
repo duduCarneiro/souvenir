@@ -17,7 +17,12 @@ class LocationsController < ApplicationController
       # idlocation: location.id,
       lat: location.latitude,
       lng: location.longitude,
-      image_url: helpers.asset_url('cam_icon.png')
+      # image_url: helpers.asset_url('cam_icon.png')
+      image_url: helpers.asset_url('https://res.cloudinary.com/dii4d3v8r/image/upload/v1623673901/6c0x8amezcunfgg2z0a79zv0i6se.jpg')
+      # image_url: helpers.asset_url(cl_image_path('6tgvujx90x75374ypiiy1rq9qted'))
+      # image_url: cl_image_path('6tgvujx90x75374ypiiy1rq9qted')
+      # image_url: helpers.asset_url(cl_image_path('6tgvujx90x75374ypiiy1rq9qted'))
+
       # kpic: location.albums.first.photos.first.try(:key),
       # ppic: ''
      }

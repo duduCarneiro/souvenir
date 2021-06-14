@@ -9,7 +9,8 @@ class Location < ApplicationRecord
   pg_search_scope :global_search,
     against: [ :address, :name ],
     associated_against: {
-      albums: [ :date ]
+      albums: [ :date ],
+      comments: [ :date ]
     },
     using: {
       tsearch: { prefix: true }
