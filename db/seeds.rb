@@ -32,7 +32,7 @@ images = ['https://source.unsplash.com/800x450/?ipanema,rio',
             'https://source.unsplash.com/800x450/?montaigne,paris',
             'https://source.unsplash.com/800x450/?lesinvalides,paris',
             'https://source.unsplash.com/800x450/?notredame,paris',
-            'https://source.unsplash.com/800x450/?newlands,capetown', 
+            'https://source.unsplash.com/800x450/?newlands,capetown',
             'https://source.unsplash.com/800x450/?timesquare,newyork',
             'https://source.unsplash.com/800x450/?aoyama,tokyo'
         ]
