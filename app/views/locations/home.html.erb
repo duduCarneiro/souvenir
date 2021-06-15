@@ -10,69 +10,56 @@
 </form>
 
 
-    
 <% if params[:query].present? %>
   <div id="earth_div" style = "min-height: 78vh;"> </div>
-  
-    <%# <script>
-      const element = document.getElementById("firstquery");
-      element.addEventListener('click', (event) => {
-        event.preventDefault();
-        console.log(event);
-
-        document.querySelector('#map').scrollIntoView({
-        behavior: 'smooth'
-        });
-      });
-    </script> %>
-
-
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
 <% end %>
 
 
 <% unless (@albums.nil? || @albums.empty?) && (@comments.nil? || @comments.empty?)%>
+  
   <% @markers.each do |marker| %>
     <% if marker[:kpic] %>
       <% marker[:image_url] = cl_image_path(marker[:kpic]) %>
     <% end %>
   <% end %>
 
-
   <div id="map"
-      style="width: 100%; height: 200px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    style="width: 100%; height: 200px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  
+
 <% end %>
 
 
 
-
-<div id ="test" class="cards-itens">
+<div class="cards-itens">
   <% if params[:query].present? %>
+
     <% @albums.each do |album| %>
-              <%# <p> <%= album.date </p>%>
-              <%# <p> <%= album.location_id </p>%> 
+      <%# <p> <%= album.date </p>%>
+      <%# <p> <%= album.location_id </p>%> 
       <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
       <% if album.photos.attached? %>
         <%= link_to location_path(album.location) do %>
           <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
-
-
         <% end %>
       <% end %>
     <% end %>
+
     <% @comments.each do |comment| %>
       <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
       <% if comment.text? %>
-        <p style = "font-style: italic;"><%="'#{comment.text}'"%></p>
+        <p style = "font-style: italic; font-size: 10px"><%="'#{comment.text}'"%></p>
       <% end %>
     <% end %>
+
   <% end %>
 </div>
+
+
 
 
   <%# <script>  
@@ -82,7 +69,4 @@
   behavior: 'smooth'
   });
   });
-  
-  
-
   </script> %>
