@@ -17,8 +17,8 @@ puts 'creating fake user'
 first_user = User.create(password: '123456', email: 'ze@ninguem.com')
 
 puts 'creating fakes locations'
-places = ['Ipanema, Rio de Janeiro', 'Avenue Montaigne, Paris', 'Aoyama, Tokyo',
-        'Newlands, Capetown', 'Time Square, New York']
+places = ['Ipanema, Rio de Janeiro', 'Avenue Montaigne, Paris', 'Les Invalides, Paris', 'Notre Dame, Paris', 'Newlands, Capetown', 'Time Square, New York', 'Aoyama, Tokyo']
+
 count = 0
 places.each do |element|
     location = Location.create!(address: element, user_id: first_user.id)
