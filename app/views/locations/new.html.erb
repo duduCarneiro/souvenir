@@ -18,13 +18,13 @@
                 </div>
 
                 <div class="btn">
-                    <%= link_to_add_association 'Add New Comment', f, :comments,
+                    <%#= link_to_add_association 'Add New Comment', f, :comments,
                         'data-association-insertion-node' => "#comments ol",
                         'data-association-insertion-method' => "append" %>
                 </div>
                 
                 
-                <div class="container-forms">
+                <div class="container-forms-photo">
                     <div id='albums'>
                         <ol style="list-style: none; padding: 0;">
                             <%= f.simple_fields_for :albums do |album| %>
@@ -35,7 +35,7 @@
                 </div>
                 
                 <div class="btn">
-                    <%= link_to_add_association 'Add New Album', f, :albums,
+                    <%#= link_to_add_association 'Add New Album', f, :albums,
                         'data-association-insertion-node' => "#albums ol",
                         'data-association-insertion-method' => "append" %>
                 </div>
