@@ -1,6 +1,6 @@
 .btn a {
   color: white;
-  border: 1px solid #4A4A4A;
+  border: 3px solid #060537;
   margin-top: 20px;
   margin-bottom:20px;
   padding-left: 8px;
@@ -14,12 +14,25 @@
   transition: opacity 0.3s ease;
 }
 
+.controls > .btn {
+  padding: 0 !important;
+  margin-bottom:15px !important;
+}
+
+.field > .btn {
+  padding: 0 !important;
+}
+
+.form-group > input {
+  background-color: #D0D2D4 !important;
+}
+
 .btn:hover {
    opacity: 1;
 }
 
 .container-forms {
-  border: 1px solid #4A4A4A; 
+  border: 3px solid #060537; 
   width: 110%;
   padding-top: 10px;
   padding-left: 20px;
@@ -29,10 +42,10 @@
 }
 
 .submit input {
-  color: white;
+  color: #D0D2D4;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #571edd;
+  background:#060537;
   transition: background 0.3s ease;
   margin-top: 20px;
 }
@@ -40,4 +53,14 @@
 .submit input :hover {
   background: #2617ad;
   color: white;
+}
+
+.upload-photo {
+  border: 3px solid #060537;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: none;
+  box-shadow: 23px 29px 19px -16px rgba(30, 30, 60, 0.36); 
+  border-radius: 2px;
 }

@@ -42,5 +42,11 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMapbox();
   initFlatpickr();
+  $('#albums').on('cocoon:after-insert', function(e, added_task) {
+    initFlatpickr();
+   })
+   $('#comments').on('cocoon:after-insert', function(e, added_task) {
+    initFlatpickr();
+   })
 })
 
