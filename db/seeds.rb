@@ -112,7 +112,13 @@ end
 #     puts "(#{sum} of #{images.count} done)"
 # end
 
-verbis = ['Mussum Ipsum, cacilds vidis litro abertis.', 'Manduma pindureta quium dia nois paga.', 'Interagi no mé, cursus quis, vehicula ac nisi.', 'Admodum accumsan disputationi eu sit.', 'Vide electram sadipscing et per.', 'Praesent malesuada urna nisi, quis volutpat erat hendrerit non.', 'Nam vulputate dapibus.']
+verbis = ['This place is where I met Jorge for the first time, we drank a beer and enjoyed our day.',
+'This day was a particular day, I received my exam result and got accepted in Harvard.',
+'I met my idol Mastodon for the very first time on this street',
+'I managed to do my first backflip with a stranger I met, called Matt and we became good friends.',
+'Beautiful place, visiting for the 5th time and still amazes me',
+'In love with the culture and the architecture, I need to organize this trip in the years to come.']
+
 i = 0
 verbis.each do |element|
     comment = Comment.create!(date: rand(24).months.ago, text: element, location_id: rand(Location.first.id..Location.last.id))

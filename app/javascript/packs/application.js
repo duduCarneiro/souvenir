@@ -32,6 +32,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initIalize } from '../plugins/init_Ialize';
 import { previewImageOnFileSelect  }  from '../plugins/photo_preview' ;
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSmooth } from '../plugins/init_smooth';
 import { initFlatpickr  } from '../plugins/flatpickr';
 
 //maps
@@ -41,6 +42,8 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initAutocomplete();
   initMapbox();
+  // initSmooth();
+
   initFlatpickr();
   $('#albums').on('cocoon:after-insert', function(e, added_task) {
     initFlatpickr();
