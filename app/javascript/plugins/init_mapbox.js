@@ -16,7 +16,7 @@ const addMarkersToMap = (map, markers) => {
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
-      element.style.width = '25px';
+      element.style.width = '50px';
       element.style.height = '25px';
 
   
@@ -49,10 +49,12 @@ const initMapbox = () => {
     //     .addTo(map);
     // });
 
-
-    
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
+
+    mapElement.scrollIntoView({
+      behavior: 'smooth'
+    });
 
 
   }
