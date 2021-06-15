@@ -2,7 +2,7 @@
 
 <div id="alinhamento" class="container">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="margin-right: 42px">
 
         <% @albums.each do |album| %>
           <ul style="list-style: none;" >
@@ -10,26 +10,23 @@
               <li >
                 <div class="cards">
                   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(photo.key)%>)">
-                      <ul class="d-flex list-unstyled mt-auto pl-1 pr-1">
-                        <li class="me-3">
-                            <i class="fas fa-camera"></i>
-                        </li>
+                      <ul class="d-flex list-unstyled mt-auto pl-1 pr-1" style="margin-right: 40px;">
                         <li class="d-flex align-items-start me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                          <small><%= @location.name%> </small>
+                          <small><%= @location.address %> </small>
                         </li>
                         <li class="d-flex align-items-center me-3">
                           <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                          <small> <%= @location.address %>  </small>
+                          <small> <%= album.date %>  </small>
                       </ul>
-                    
+
                   </div>
                 </div>
               </li>
             <% end %>
           </ul>
         <% end %>
-        
+
     </div>
   </div>
 </div>
@@ -40,12 +37,12 @@
   <% @comments.each do  |comment|  %>
   <div class="card-product">
   <i class="fas fa-file-alt"></i>
-    <div class="card-product-infos">
+    <div class="card-product-infos" style="border: solid white; margin-right: 25px; margin-top: 30px;">
       <h2><%= comment.text %></h2>
       <p><%= @location.address %></p>
       <p><%= comment.date %></p>
 
     </div>
   </div>
-  <% end %> 
+  <% end %>
 </div>
