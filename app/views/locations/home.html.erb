@@ -2,7 +2,7 @@
 
 
 
-<div class="search" style="display: flex;">
+<div class="search" style="display: flex; width: 100%">
   <div style="width: 300px; margin-right: 3px;">
     <%= form_tag root_path, method: :get do %>
     <%# <%= form_tag root_path(anchor: "map"), method: :get do %>
@@ -12,37 +12,30 @@
       placeholder: "Find a memory"
     %>
   </div>
-  <div id= "firstquery"  style="margin-top: 20px;">
+  <div id= "firstquery" style="margin-top: 20px;">
     <%= submit_tag "Search", class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>
 
-<%# <% @locations.each do |element| %>
-  <%# <% @selectedmarkers = @markers.select {|x| x[:idlocation] == element.id } %>
-  <%# <% @selectedmarkers.each do |subelement| %>
-    <%# <% if subelement[:kpic]%>
-      <%# <% subelement[:ppic] = cl_image_path(subelement[:kpic])%>
-    <%# <% end %>
-  <%# <% end %>
-<%# <% end %>
 
-<%# <div id='allmarkers' data-markers=<%=@markers.to_json></div> %>
 
+    
 <% if params[:query].present? %>
   <div id="earth_div" style = "min-height: 78vh;"> </div>
-
-    <script>
+  
+    <%# <script>
       const element = document.getElementById("firstquery");
-      element.addEventListener('click', function (e) {
-        e.preventDefault();
+      element.addEventListener('click', (event) => {
+        event.preventDefault();
         console.log(event);
 
         document.querySelector('#map').scrollIntoView({
         behavior: 'smooth'
         });
       });
-    </script>
+    </script> %>
+
 
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
@@ -50,21 +43,25 @@
 
 
 <% unless (@albums.nil? || @albums.empty?) && (@comments.nil? || @comments.empty?)%>
+  <% @markers.each do |marker| %>
+    <% if marker[:kpic] %>
+      <% marker[:image_url] = cl_image_path(marker[:kpic]) %>
+    <% end %>
+  <% end %>
+
+
   <div id="map"
       style="width: 100%; height: 200px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  
 <% end %>
 
 
 
 
-
-
-
-  
-<div class="cards-itens">
+<div id ="test" class="cards-itens">
   <% if params[:query].present? %>
     <% @albums.each do |album| %>
               <%# <p> <%= album.date </p>%>
@@ -86,3 +83,16 @@
     <% end %>
   <% end %>
 </div>
+
+
+  <%# <script>  
+    document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM completamente carregado e analisado");
+      document.querySelector('#map').scrollIntoView({
+  behavior: 'smooth'
+  });
+  });
+  
+  
+
+  </script> %>
