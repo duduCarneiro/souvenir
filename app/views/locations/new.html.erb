@@ -9,7 +9,7 @@
                 
                 <div class="container-forms">
                     <fieldset id='comments'>
-                        <ol style="list-style: none;">
+                        <ol style="list-style: none;  padding: 0;">
                             <%= f.fields_for :comments do |comment| %>
                                 <%= render partial: "comment_fields", locals: { f: comment} %>
                             <% end %>
@@ -25,13 +25,13 @@
                 
                 
                 <div class="container-forms">
-                    <fieldset id='albums'>
-                        <ol style="list-style: none;">
+                    <div id='albums'>
+                        <ol style="list-style: none; padding: 0;">
                             <%= f.simple_fields_for :albums do |album| %>
                                 <%= render partial: "album_fields", locals: { f: album} %>
                             <% end %>
                         </ol>
-                    </fieldset>
+                    </div>
                 </div>
                 
                 <div class="btn">
@@ -49,3 +49,4 @@
         <% end %>
     </div>
 </div>
+
