@@ -4,8 +4,8 @@
 
 <div class="search" style="display: flex; width: 100%">
   <div style="width: 300px; margin-right: 3px;">
-    <%= form_tag root_path, method: :get do %>
-    <%# <%= form_tag root_path(anchor: "map"), method: :get do %>
+    <%# <%= form_tag root_path, method: :get do %> 
+    <%= form_tag root_path(anchor: "map"), method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
