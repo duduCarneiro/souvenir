@@ -1,16 +1,10 @@
 <li class="control-group nested-fields">
   <div class="controls">
-    <%= f.input :text %>
-    <%= f.date_select :date, {
-                 order: [:day, :month, :year],
-                 start_year: Date.today.year,
-                 end_year: Date.today.year - 100,
-                 },
-                {class: 'custom-style'}  %>
+    <%= f.input :text, label: 'Comment', input_html: { class: 'form-control' } %>
     
-
-    <%= link_to_remove_association "remove", f %>
-
+    <%= f.input  :date,
+                 as: :string,
+                input_html: {class: 'datepicker'} %>
   </div>
 
 </li>

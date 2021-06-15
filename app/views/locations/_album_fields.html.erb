@@ -1,23 +1,14 @@
 <li class="control-group nested-fields">
   <div class="controls  mb-3">
     <div class="mb-2"> 
-      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none', id: 'photo-input'},                      
-                          label_html: { class: 'upload-photo'}, label: '📷'
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'hidden d-none', id: 'photo-input'},                      
+                          label_html: { class: 'upload-photo'}, label: '➕ Pictures'
       %>
-      <%= image_tag "", width: 100, class: "hidden", id: "photo-preview" %>
+      <%= image_tag "", width: 200, class: "hidden", id: "photo-preview" %>
     </div>
 
-
-    <%= f.date_select  :date,
-                 {
-                 order: [:day, :month, :year],
-                 start_year: Date.today.year,
-                 end_year: Date.today.year - 100,
-                 },
-                {class: 'custom-style'} %>
-
-    <%= link_to_remove_association "remove", f %>
-
+    <%= f.input  :date,
+                 as: :string,
+                input_html: {class: 'datepicker'} %>
   </div>
-
 </li>

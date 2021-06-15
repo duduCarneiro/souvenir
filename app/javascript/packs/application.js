@@ -10,7 +10,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -34,6 +33,7 @@ import { initIalize } from '../plugins/init_Ialize';
 import { previewImageOnFileSelect  }  from '../plugins/photo_preview' ;
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSmooth } from '../plugins/init_smooth';
+import { initFlatpickr  } from '../plugins/flatpickr';
 
 //maps
 
@@ -44,5 +44,12 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   // initSmooth();
 
+  initFlatpickr();
+  $('#albums').on('cocoon:after-insert', function(e, added_task) {
+    initFlatpickr();
+   })
+   $('#comments').on('cocoon:after-insert', function(e, added_task) {
+    initFlatpickr();
+   })
 })
 

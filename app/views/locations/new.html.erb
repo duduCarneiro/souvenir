@@ -1,38 +1,52 @@
-<div class="background-color" style="background-color: #58585B; width: 80%; margin: 0 auto; padding-bottom: 20px; margin-top: 60px; ">
-<div class="container" style="color: black;">
-    <%= simple_form_for @location do |f| %>
-        <div class="field" style="width: 50%;">
-            <%= f.input :name %>
-            <%= f.input :address %>
+<div class="background-color" style=" width: 80%; margin: 0 auto; padding-bottom: 20px; margin-top: 60px; ">
+    <div class="container" style="color: white;">
+        <%= simple_form_for @location do |f| %>
+            <div class="field" style="width: 90%;">
+                <div class="container-forms">
+                    <%= f.input :name, label: 'Title', input_html: { class: 'form-control' } %>
+                    <%= f.input :address %>
+                </div>
+                
+                <div class="container-forms">
+                    <fieldset id='comments'>
+                        <ol style="list-style: none;  padding: 0;">
+                            <%= f.fields_for :comments do |comment| %>
+                                <%= render partial: "comment_fields", locals: { f: comment} %>
+                            <% end %>
+                        </ol>
+                    </fieldset>
+                </div>
 
-            <%= link_to_add_association 'Add Comments', f, :comments,
-                'data-association-insertion-node' => "#comments ol",
-                'data-association-insertion-method' => "append" %>
+                <div class="btn">
+                    <%#= link_to_add_association 'Add New Comment', f, :comments,
+                        'data-association-insertion-node' => "#comments ol",
+                        'data-association-insertion-method' => "append" %>
+                </div>
+                
+                
+                <div class="container-forms-photo">
+                    <div id='albums'>
+                        <ol style="list-style: none; padding: 0;">
+                            <%= f.simple_fields_for :albums do |album| %>
+                                <%= render partial: "album_fields", locals: { f: album} %>
+                            <% end %>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="btn">
+                    <%#= link_to_add_association 'Add New Album', f, :albums,
+                        'data-association-insertion-node' => "#albums ol",
+                        'data-association-insertion-method' => "append" %>
+                </div>
 
-            <fieldset id='comments'>
-                <ol>
-                    <%= f.fields_for :comments do |comment| %>
-                        <%= render partial: "comment_fields", locals: { f: comment} %>
-                    <% end %>
-                </ol>
-            </fieldset>
 
-             <%= link_to_add_association 'Add Photos', f, :albums, 
-                'data-association-insertion-node' => "#albums ol",
-                'data-association-insertion-method' => "append" %>
+            </div>
+            <div class="submit">
+                <%= f.submit "Create Experience" %>
+            </div>
 
-            <fieldset id='albums'>
-                <ol>
-                    <%= f.simple_fields_for :albums do |album| %>
-                        <%= render partial: "album_fields", locals: { f: album} %>
-                    <% end %>
-                </ol>
-            </fieldset>
-        </div>
-        <div class="actions">
-            <%= f.submit "Create Experience" %>
-        </div>
-
-    <% end %>
+        <% end %>
+    </div>
 </div>
-</div>
+
