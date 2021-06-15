@@ -1,14 +1,10 @@
 <li class="control-group nested-fields">
   <div class="controls">
     <%= f.input :text, label: 'Comment', input_html: { class: 'form-control' } %>
-        <%= f.input  :date,
+    
+    <%= f.input  :date,
                  as: :string,
                 input_html: {class: 'datepicker'} %>
-
-    
-    <div class="btn">
-      <%= link_to_remove_association "Delete", f %>
-    </div>
   </div>
 
 </li>
