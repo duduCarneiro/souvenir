@@ -17,10 +17,11 @@ puts 'creating fake user'
 first_user = User.create(password: '123456', email: 'ze@ninguem.com')
 
 puts 'creating fakes locations'
-places = ['Ipanema, Rio de Janeiro', 'Avenue Montaigne, Paris', 'Les Invalides, Paris', 'Notre Dame, Paris', 'Newlands, Capetown', 'Time Square, New York', 'Aoyama, Tokyo']
+places = [['Surf trip', 'Ipanema, Rio de Janeiro'], ['The biggest adventure', 'Avenue Montaigne, Paris'], ['My place', 'Les Invalides, Paris'], ['School trip', 'Notre Dame, Paris'], ['Amazing journey', 'Newlands, Capetown'], ['My first time abroad', 'Time Square, New York'], ['Honeymoon', 'Aoyama, Tokyo']]
+
 count = 0
 places.each do |element|
-    location = Location.create!(address: element, user_id: first_user.id)
+    location = Location.create!(name: element[0], address: element[1], user_id: first_user.id)
     puts "place id: #{location.id}- location: #{location.address}"
     count +=1
     puts "(#{count} of #{places.count} done)"
