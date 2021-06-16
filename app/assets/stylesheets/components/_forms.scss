@@ -65,7 +65,7 @@
   background: #190931;
   transition: background 0.3s ease;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .submit input :hover {
@@ -83,4 +83,11 @@
   background: none;
   box-shadow: 23px 29px 19px -16px rgba(30, 30, 60, 0.36); 
   border-radius:25px ;
+}
+
+
+.a-primary{
+  /* styles for link */
+  color: white;
+  padding-left: 12px;
 }
