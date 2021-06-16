@@ -2,7 +2,7 @@
 <%= simple_form_for :search, url: root_path, method: :get do |f| %>
 <%# <%= simple_form_for :search, url: root_path, remote: true, method: :get do |f| %>
 
-  <div class="search-form-control form-group">
+  <div id="search-bar" class="search-form-control form-group">
     <input class="form-control string required" type="text" name="query" id="query" placeholder="Find a memory"/>
     <button name="button" type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i> Search
@@ -48,23 +48,54 @@
 
     <% @locations.each do |loc| %>
       <% first_album_of_location = 0 %>
-      <% first_comment_of_location = 0 %>
 
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
           <% @albums.each do |album| %>
             <% if album.photos.attached? && album.location == loc%>
               <% if first_album_of_location == 0 %>
-                <div class="carousel-item active">
-                  <%# <%= link_to location_path(album.location) do %> 
-                  <img src=<%= cl_image_path album.photos.first.key %> class="d-block w-100" alt="...">
-                  <% first_album_of_location = 1 %>
-                </div>
+                <% album.photos.each do |photo| %>
+                  <div class="carousel-item active">
+                    <%= link_to location_path(album.location) do %> 
+                      <li >
+                        <div class="cards">  
+                          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
+                              <ul class="d-flex list-unstyled mt-auto pl-1 pr-1 justify-content-between">
+                                <li class="d-flex align-items-start me-3">
+                                  <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"><%= loc.address %> </small>
+                                </li>
+                                <li class="d-flex align-items-center me-3">
+                                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                                  <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"> <%= album.date %>  </small>
+                              </ul>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                    <% first_album_of_location = 1 %>
+                  </div>
+                 <% end %>
               <% else %>
-                <div class="carousel-item">
-                  <%# <%= link_to location_path(album.location) do %>
-                  <img src=<%= cl_image_path album.photos.first.key %> class="d-block w-100" alt="...">
-                </div>
+                 <% album.photos.each do |photo| %>
+                  <div class="carousel-item">
+                    <%= link_to location_path(album.location) do %> 
+                      <li >
+                        <div class="cards">  
+                          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
+                              <ul class="d-flex list-unstyled mt-auto pl-1 pr-1 justify-content-between">
+                                <li class="d-flex align-items-start me-3">
+                                  <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"><%= loc.address %> </small>
+                                </li>
+                                <li class="d-flex align-items-center me-3">
+                                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                                  <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"> <%= album.date %>  </small>
+                              </ul>
+                          </div>
+                        </div>
+                      </li>
+                    <% end %>
+                  </div>
+                 <% end %>
               <% end %>
 
             <% end %>
@@ -80,24 +111,40 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+    <% end %>
       <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
       <%# ///////////////////////////////////////////////////////carousel model for comments///////////////////////////////////////////////////// %>
       <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
-
+    <% @locations.each do |loc| %>
+      <% first_comment_of_location = 0 %>
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
           <% @comments.each do |comment|%>
             <% if comment.text? && comment.location == loc%>
               <% if first_comment_of_location == 0 %>
                 <div class="carousel-item active">
-                  <%# <%= link_to location_path(comment.location) do %> 
-                  <p style = "font-style: italic; font-size: 10px"><%="'#{comment.text}'"%></p>
+                  <%= link_to location_path(comment.location) do %> 
+                    <div class="card-product-home">
+                      <div class="card-product-infos-home" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
+                        <h2><%= comment.text %></h2>
+                        <p><%= loc.address %></p>
+                        <%= @albums.last.date %>
+                      </div>
+                    </div>
+                  <% end %>
                   <% first_comment_of_location = 1 %>
                 </div>
               <% else %>
                 <div class="carousel-item">
-                  <%# <%= link_to location_path(comment.location) do %>
-                  <p style = "font-style: italic; font-size: 10px"><%="'#{comment.text}'"%></p>
+                  <%= link_to location_path(comment.location) do %>
+                    <div class="card-product-home">
+                      <div class="card-product-infos-home" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
+                        <h2><%= comment.text %></h2>
+                        <p><%= loc.address %></p>
+                        <%= @albums.last.date %>
+                      </div>
+                    </div>
+                  <% end %>
                 </div>
               <% end %>
             <% end %>
@@ -116,8 +163,8 @@
     <% end %>
 
   <% end %>
-
 </div>
+
 <%# ........................................................JUST SHOWING AFTER A QUERY..................................................... %>
 <%# ....................................................................................................................................... %>
 <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
