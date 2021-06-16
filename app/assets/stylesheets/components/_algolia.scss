@@ -1,0 +1,40 @@
+/* Main dropdown wrapper */
+.algolia-autocomplete .ds-dropdown-menu {
+  width: 500px;
+}
+
+/* Main category (eg. Getting Started) */
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  color: black;
+  border: 1px solid black;
+}
+
+/* Category (eg. Downloads) */
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  color: black;
+}
+
+/* Title (eg. Bootstrap CDN) */
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  font-weight: bold;
+  color: black;
+}
+
+/* Description description (eg. Bootstrap currently works...) */
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+  font-size: 0.8rem;
+  color: black;
+}
+
+/* Highlighted text */
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  color: blue;
+}
+
+.ap-name {
+  color: black !important;
+}
+
+.ap-input-icon svg {
+  fill: gray;
+}
