@@ -15,7 +15,9 @@
 .cards-itens {
   padding-top: 8px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+
   justify-content: space-around;
   align-items: center;
 }
@@ -44,7 +46,8 @@
 
   .cards-itens {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
@@ -62,7 +65,8 @@
 
   .cards-itens {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
@@ -80,7 +84,8 @@
 
   .cards-itens {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
@@ -96,7 +101,8 @@
 
   .cards-itens {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
@@ -111,7 +117,8 @@
   }
   .cards-itens {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
