@@ -14,13 +14,13 @@ class LocationsController < ApplicationController
 
     @markers = @locations.geocoded.map do |location|
       {
-      # idlocation: location.id,
       lat: location.latitude,
       lng: location.longitude,
       kpic: location.albums.first.photos.first.try(:key),
-      # image_url: helpers.asset_url('cam_icon.png')
       redirect_to: location_url(location),
-      image_url: ''
+      image_url: '',
+      id: location.id # we add the id of the flat in the hash
+
       # image_url: helpers.asset_url(cl_image_path('6tgvujx90x75374ypiiy1rq9qted'))
       # image_url: cl_image_path('6tgvujx90x75374ypiiy1rq9qted')
       # image_url: helpers.asset_url(cl_image_path('6tgvujx90x75374ypiiy1rq9qted'))
