@@ -15,7 +15,10 @@
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
 <% end %>
-
+<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# ........................................................JUST SHOWING AFTER A QUERY..................................................... %>
+<%# ....................................................................................................................................... %>
 
 <% unless (@albums.nil? || @albums.empty?) && (@comments.nil? || @comments.empty?)%>
   
@@ -33,40 +36,87 @@
 
 <% end %>
 
-
+<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////carousel model for albums/////////////////////////////////////////////////////// %>
+<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
 
 <div class="cards-itens">
+
   <% if params[:query].present? %>
 
-    <% @albums.each do |album| %>
-      <%# <p> <%= album.date </p>%>
-      <%# <p> <%= album.location_id </p>%> 
-      <%# <%= link_to album do a principio nao tem link pra ir pro show page do album%>
-      <% if album.photos.attached? %>
-        <%= link_to location_path(album.location) do %>
-          <img src=<%= cl_image_path album.photos.first.key %> width="130px"> <!--a principio so aparece a primeira photo de cada album. Melhorar depois--> 
-        <% end %>
-      <% end %>
-    <% end %>
+    <% @locations.each do |loc| %>
+      <% first_album_of_location = 0 %>
+      <% first_comment_of_location = 0 %>
 
-    <% @comments.each do |comment| %>
-      <%# <%= link_to comment do a principio nao tem link pra ir pro show page do comment%>
-      <% if comment.text? %>
-        <p style = "font-style: italic; font-size: 10px"><%="'#{comment.text}'"%></p>
-      <% end %>
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @albums.each do |album| %>
+            <% if album.photos.attached? && album.location == loc%>
+              <% if first_album_of_location == 0 %>
+                <div class="carousel-item active">
+                  <%# <%= link_to location_path(album.location) do %> 
+                  <img src=<%= cl_image_path album.photos.first.key %> class="d-block w-100" alt="...">
+                  <% first_album_of_location = 1 %>
+                </div>
+              <% else %>
+                <div class="carousel-item">
+                  <%# <%= link_to location_path(album.location) do %>
+                  <img src=<%= cl_image_path album.photos.first.key %> class="d-block w-100" alt="...">
+                </div>
+              <% end %>
+
+            <% end %>
+          <% end %>
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+      <%# ///////////////////////////////////////////////////////carousel model for comments///////////////////////////////////////////////////// %>
+      <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @comments.each do |comment|%>
+            <% if comment.text? && comment.location == loc%>
+              <% if first_comment_of_location == 0 %>
+                <div class="carousel-item active">
+                  <%# <%= link_to location_path(comment.location) do %> 
+                  <p style = "font-style: italic; font-size: 10px"><%="'#{comment.text}'"%></p>
+                  <% first_comment_of_location = 1 %>
+                </div>
+              <% else %>
+                <div class="carousel-item">
+                  <%# <%= link_to location_path(comment.location) do %>
+                  <p style = "font-style: italic; font-size: 10px"><%="'#{comment.text}'"%></p>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     <% end %>
 
   <% end %>
+
 </div>
-
-
-
-
-  <%# <script>  
-    document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM completamente carregado e analisado");
-      document.querySelector('#map').scrollIntoView({
-  behavior: 'smooth'
-  });
-  });
-  </script> %>
+<%# ........................................................JUST SHOWING AFTER A QUERY..................................................... %>
+<%# ....................................................................................................................................... %>
+<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
