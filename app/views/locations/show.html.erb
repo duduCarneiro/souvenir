@@ -38,8 +38,7 @@
     <div class="card-product-infos" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
       <h2><%= comment.text %></h2>
       <p><%= @location.address %></p>
-      <p><%= comment.date %></p>
-
+       <%= @albums.last.date %>
     </div>
   </div>
   <% end %>
