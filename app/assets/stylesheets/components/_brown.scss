@@ -32,33 +32,35 @@
 }
 
 
-    .speech-bubble2 {
-    position: fixed;
-    background: white;
-    border-radius: .4em;
-    width: 72%;
-    height: 17%;
-    bottom: 386px;
-    left: 50px;
-    }
-    .speech-bubble2:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 18%;
-      width: 0;
-      height: 0;
-      border: 36px solid transparent;
-      border-top-color: white;
-      border-bottom: 0;
-      border-right: 0;
-      margin-left: -18px;
-      margin-bottom: -36px;
-    }
-    p {
-      color: black;
-      font-size: 15px;
-    }
+.speech-bubble2 {
+position: fixed;
+background: white;
+border-radius: .4em;
+width: 72%;
+height: 17%;
+bottom: 386px;
+left: 50px;
+align-content: center;
+}
+.speech-bubble2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18%;
+  width: 0;
+  height: 0;
+  border: 36px solid transparent;
+  border-top-color: white;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -18px;
+  margin-bottom: -36px;
+}
+p {
+  color: black;
+  font-size: 14px;
+  margin: 8px 4px;
+}
 
 .speech-bubble2hidden {
     visibility: hidden;

@@ -12,14 +12,16 @@
 }
 
 .navbar-nav {
-  padding-left: 170px;
+  // padding-left: 170px;
+  position: absolute;
+  right: 20px;
 }
 
 
 .dropdown-menu {
-    position: absolute !important;
+  position: absolute !important;
 }
 
 .avatar {
-  width: 58px;
+  width: 65px;
 }
