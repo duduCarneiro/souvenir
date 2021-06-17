@@ -17,10 +17,12 @@
 <% else %>
   <div id="earth_div" style = "min-height: 100vh;"></div>
 <% end %>
-<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
-<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
-<%# ........................................................JUST SHOWING AFTER A QUERY..................................................... %>
-<%# ....................................................................................................................................... %>
+
+
+<%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# ........................................................JUST SHOWING AFTER A QUERY....................................................................... %>
+<%# ..............................................................vvvvvvvvv.................................................................................. %>
 
 <% unless (@albums.nil? || @albums.empty?) && (@comments.nil? || @comments.empty?)%>
   
@@ -38,28 +40,55 @@
 
 <% end %>
 
-<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
-<%# ///////////////////////////////////////////////////////carousel model for albums/////////////////////////////////////////////////////// %>
-<%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
 
 <div class="cards-itens">
 
   <% if params[:query].present? %>
 
     <% @locations.each do |loc| %>
-      <% first_album_of_location = 0 %>
 
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-          <% @albums.each do |album| %>
-            <% if album.photos.attached? && album.location == loc%>
-              <% if first_album_of_location == 0 %>
-                <% album.photos.each do |photo| %>
-                  <div class="carousel-item active">
-                    <%= link_to location_path(album.location) do %> 
-                      <li >
-                        <div class="cards">  
-                          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
+      <%# /////////////////////FROM THIS POINT, JUST IF AT LEAST ONE LOCATION_ID ALBUMS == LOC.ID/////////////////////////////////// %>
+      <%# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+      <% at_least_one_album = @albums.select {|element| element[:location_id] == loc.id } %>
+      <% if at_least_one_album.length > 0 %>
+        <%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+        <%# ///////////////////////////////////////////////////////carousel model for albums///////////////////////////////////////////// %>
+        <%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+        <% first_album_of_location = 0 %>
+        <div id='carouselExampleFade<%=loc.id%>' class="carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @albums.each do |album| %>
+              <% if album.photos.attached? && album.location == loc%>
+                <% if first_album_of_location == 0 %>
+                  <% album.photos.each do |photo| %>
+                    <div class="carousel-item active">
+                      <%= link_to location_path(album.location) do %> 
+                        <li >
+                          <div class="cards">  
+                            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
+                                <ul class="d-flex list-unstyled mt-auto pl-1 pr-1 justify-content-between">
+                                  <li class="d-flex align-items-start me-3">
+                                    <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"><%= loc.address %> </small>
+                                  </li>
+                                  <li class="d-flex align-items-center me-3">
+                                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+                                    <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"> <%= album.date %>  </small>
+                                  </li>
+                                </ul>
+                            </div>
+                          </div>
+                        </li>
+                      <% end %>
+                      <% first_album_of_location = 1 %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <% album.photos.each do |photo| %>
+                    <div class="carousel-item">
+                      <%= link_to location_path(album.location) do %> 
+                        <li >
+                          <div class="cards">  
+                            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
                               <ul class="d-flex list-unstyled mt-auto pl-1 pr-1 justify-content-between">
                                 <li class="d-flex align-items-start me-3">
                                   <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"><%= loc.address %> </small>
@@ -67,103 +96,98 @@
                                 <li class="d-flex align-items-center me-3">
                                   <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
                                   <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"> <%= album.date %>  </small>
-                              </ul>
-                          </div>
-                        </div>
-                      </li>
-                    <% end %>
-                    <% first_album_of_location = 1 %>
-                  </div>
-                 <% end %>
-              <% else %>
-                 <% album.photos.each do |photo| %>
-                  <div class="carousel-item">
-                    <%= link_to location_path(album.location) do %> 
-                      <li >
-                        <div class="cards">  
-                          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path photo.key %>)">
-                              <ul class="d-flex list-unstyled mt-auto pl-1 pr-1 justify-content-between">
-                                <li class="d-flex align-items-start me-3">
-                                  <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"><%= loc.address %> </small>
                                 </li>
-                                <li class="d-flex align-items-center me-3">
-                                  <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                                  <small style="font-size: 56%; text-shadow: 1px 1px 2px black; color: white;"> <%= album.date %>  </small>
                               </ul>
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                    <% end %>
-                  </div>
-                 <% end %>
+                        </li>
+                      <% end %>
+                    </div>
+                  <% end %>
+                <% end %>
+
               <% end %>
-
             <% end %>
-          <% end %>
-        </div>
+          </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+          <a class="carousel-control-prev" href='#carouselExampleFade<%=loc.id%>' role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href='#carouselExampleFade<%=loc.id%>' role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      <% end %>
+
+
     <% end %>
-      <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
-      <%# ///////////////////////////////////////////////////////carousel model for comments///////////////////////////////////////////////////// %>
-      <%# /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+
+
     <% @locations.each do |loc| %>
-      <% first_comment_of_location = 0 %>
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-          <% @comments.each do |comment|%>
-            <% if comment.text? && comment.location == loc%>
-              <% if first_comment_of_location == 0 %>
-                <div class="carousel-item active">
-                  <%= link_to location_path(comment.location) do %> 
-                    <div class="card-product-home">
-                      <div class="card-product-infos-home" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
-                        <h2><%= comment.text %></h2>
-                        <p><%= loc.address %></p>
-                        <%= @albums.last.date %>
+
+      <%# /////////////////////FROM THIS POINT, JUST IF AT LEAST ONE LOCATION_ID COMMENTS == LOC.ID///////////////////////////////// %>
+      <%# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+      <% at_least_one_comment = @comments.select {|element| element[:location_id] == loc.id } %>
+      <% if at_least_one_comment.length > 0 %>
+        <%# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+        <%# ///////////////////////////////////////////////////////carousel model for comments////////////////////////////////////// %>
+        <%# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+        <% first_comment_of_location = 0 %>
+        <div id='carouselExampleFadecom<%=loc.id%>' class="carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @comments.each do |comment|%>
+              <% if comment.text? && comment.location == loc%>
+                <% if first_comment_of_location == 0 %>
+                  <div class="carousel-item active">
+                    <%= link_to location_path(comment.location) do %> 
+                      <div class="card-product-home">
+                        <div class="card-product-infos-home" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
+                          <h2><%= comment.text %></h2>
+                          <p><%= loc.address %></p>
+                          <%= @albums.last.date %>
+                        </div>
                       </div>
-                    </div>
-                  <% end %>
-                  <% first_comment_of_location = 1 %>
-                </div>
-              <% else %>
-                <div class="carousel-item">
-                  <%= link_to location_path(comment.location) do %>
-                    <div class="card-product-home">
-                      <div class="card-product-infos-home" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
-                        <h2><%= comment.text %></h2>
-                        <p><%= loc.address %></p>
-                        <%= @albums.last.date %>
+                    <% end %>
+                    <% first_comment_of_location = 1 %>
+                  </div>
+                <% else %>
+                  <div class="carousel-item">
+                    <%= link_to location_path(comment.location) do %>
+                      <div class="card-product-home">
+                        <div class="card-product-infos-home" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
+                          <h2><%= comment.text %></h2>
+                          <p><%= loc.address %></p>
+                          <%= @albums.last.date %>
+                        </div>
                       </div>
-                    </div>
-                  <% end %>
-                </div>
+                    <% end %>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
 
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+          <a class="carousel-control-prev" href='#carouselExampleFadecom<%=loc.id%>' role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href='#carouselExampleFadecom<%=loc.id%>' role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      <% end %>
+
     <% end %>
 
   <% end %>
 </div>
+<%# .............................................................^^^^^^^^^^^^^^.............................................................................. %>
+<%# ........................................................JUST SHOWING AFTER A QUERY....................................................................... %>
+<%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
+<%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
 
 <%# ........................................................JUST SHOWING AFTER A QUERY..................................................... %>
 <%# ....................................................................................................................................... %>
@@ -181,5 +205,3 @@
       <%= image_tag "brown.png" %>
     </div>
 </div>
-
-

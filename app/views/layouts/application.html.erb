@@ -20,8 +20,13 @@
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-
-      <%= render 'shared/footer' %>
+     <% if user_signed_in? %>
+       <%= render 'shared/footer' %>
+     <% end %>
+     
     </div>
   </body>
 </html>
+
+
+
