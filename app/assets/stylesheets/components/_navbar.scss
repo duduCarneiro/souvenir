@@ -1,77 +1,27 @@
-
-
 .navbar-lewagon {
   justify-content: space-between;
-  padding: 0;
+  background: transparen
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-  color:  #D0D2D4;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 120px;
-  height:120px;
+  width: 90px;
 }
 
-#location_address {
-  background-color:  #D0D2D4;
-}
-
-#location_name {
-  background-color:  #D0D2D4;
+.navbar-nav {
+  // padding-left: 170px;
+  position: absolute;
+  right: 20px;
 }
 
 
-#location_comments_attributes_0_text {
-  background-color:  #D0D2D4;
+.dropdown-menu {
+  position: absolute !important;
 }
 
-
-#location_comments_attributes_0_date_3i {
-  background-color:  #D0D2D4;
+.avatar {
+  width: 65px;
 }
-
-
-#location_comments_attributes_0_date_2i {
-  background-color:  #D0D2D4;
-}
-
-
-#location_comments_attributes_0_date_1i {
-  background-color:  #D0D2D4;
-}
-
-
-.upload-photo {
-  background-color:  #D0D2D4;
-}
-
-
-#location_albums_attributes_0_date_3i {
-  background-color:  #D0D2D4;
-}
-
-
-#location_albums_attributes_0_date_2i {
-  background-color:  #D0D2D4;
-}
-
-
-#location_albums_attributes_0_date_1i {
-  background-color:  #D0D2D4;
-}
-
-
-.input {
-  background-color:  #D0D2D4;
-}
-
-
-
-
-
-
-
-
