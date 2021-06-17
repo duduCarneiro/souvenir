@@ -34,7 +34,7 @@ import { previewImageOnFileSelect  }  from '../plugins/photo_preview' ;
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSmooth } from '../plugins/init_smooth';
 import { initFlatpickr  } from '../plugins/flatpickr';
-
+import { bigBrown  } from '../plugins/brown';
 //maps
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initAutocomplete();
   initMapbox();
+  bigBrown();
   // initSmooth();
 
   initFlatpickr();

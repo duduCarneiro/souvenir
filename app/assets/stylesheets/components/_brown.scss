@@ -1,0 +1,65 @@
+.brownSmall {
+  img {
+    width: 100px;
+    margin-left: 100px;
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    z-index: 1;
+
+    }
+  }
+
+
+.brownBig {
+  background-color: rgba(192, 184, 184, 0.4);
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+  top:0;
+  left:0;
+  position: fixed;
+  img {
+    width: 325px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+  p {
+    padding: 6px;
+  }
+}
+
+
+    .speech-bubble2 {
+    position: fixed;
+    background: white;
+    border-radius: .4em;
+    width: 72%;
+    height: 17%;
+    bottom: 386px;
+    left: 50px;
+    }
+    .speech-bubble2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 18%;
+      width: 0;
+      height: 0;
+      border: 36px solid transparent;
+      border-top-color: white;
+      border-bottom: 0;
+      border-right: 0;
+      margin-left: -18px;
+      margin-bottom: -36px;
+    }
+    p {
+      color: black;
+      font-size: 15px;
+    }
+
+.speech-bubble2hidden {
+    visibility: hidden;
+}
