@@ -17,7 +17,7 @@ class LocationsController < ApplicationController
       lat: location.latitude,
       lng: location.longitude,
       kpic: location.albums.first.photos.first.try(:key),
-      redirect_to: location_url(location),
+      redirect_to: location_path(location),
       image_url: ''
       # id: location.id # we add the id of the flat in the hash
 
