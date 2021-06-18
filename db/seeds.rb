@@ -17,7 +17,7 @@ puts 'creating fake user'
 first_user = User.create(password: '123456', email: 'ze@ninguem.com')
 
 puts 'creating fakes locations'
-places = [['The biggest adventure', 'Avenue Montaigne, Paris'], ['My place', 'Les Invalides, Paris'], ['School trip', 'Notre Dame, Paris'], ['Surf trip', 'Ipanema, Rio de Janeiro'], ['Amazing journey', 'Newlands, Capetown'], ['My first time abroad', 'Time Square, New York'], ['Honeymoon', 'Aoyama, Tokyo']]
+places = [['The biggest adventure', 'Avenue Montaigne, Paris'], ['My place', 'Les Invalides, Paris'], ['Family trip', 'Notre Dame, Paris'], ['Surf trip', 'Ipanema, Rio de Janeiro'], ['Amazing journey', 'Newlands, Capetown'], ['My first time abroad', 'Time Square, New York'], ['Honeymoon', 'Aoyama, Tokyo']]
 
 count = 0
 places.each do |element|
@@ -94,40 +94,40 @@ end
 
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-2.times do
+5.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 3)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Ipanema, Rio de Janeiro"
     file = open(images[0])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 23 done)"
+    puts "(#{sum} of 35 done)"
 end
 
-2.times do
+5.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 4)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- New Lands, Cape Town"
     file = open(images[1])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 23 done)"
+    puts "(#{sum} of 35 done)"
 end
 
-2.times do
+5.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 5)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Times Square, New York"
     file = open(images[2])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 23 done)"
+    puts "(#{sum} of 35 done)"
 end
 
-2.times do
+5.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 6)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Aoyama, Tokyo"
     file = open(images[3])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 23 done)"
+    puts "(#{sum} of 35 done)"
 end
 
 
@@ -158,4 +158,8 @@ verbis.each do |element|
     i +=1
     puts "(#{i} of #{verbis.count} done)"
 end
+
+
+comment = Comment.create!(date: rand(24).months.ago, text: verbis[8], location_id: Location.third.id)
+comment = Comment.create!(date: rand(24).months.ago, text: verbis[7], location_id: Location.third.id)
 puts 'done'
