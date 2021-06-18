@@ -1,5 +1,5 @@
 #alinhamento {
-  display: flex;
+  // display: flex;
   justify-items: center;
   align-content: center;
   align-items: center;
@@ -68,7 +68,7 @@ s
   .cards-itens {
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
