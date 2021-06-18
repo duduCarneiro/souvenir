@@ -2,10 +2,10 @@
 
 <div id="alinhamento" class="container">
   <div class="row">
-    <div class="col-sm-6" style="margin-right: 42px">
+    <div class="col-sm-12">
 
         <% @albums.each do |album| %>
-          <ul style="list-style: none;" >
+          <ul style="list-style: none; padding: 20px" >
             <% album.photos.each do  |photo|  %>
               <li >
                 <div class="cards">
@@ -35,7 +35,7 @@
 <div class="comment ml-2">
   <% @comments.each do  |comment|  %>
   <div class="card-product">
-    <div class="card-product-infos" style="border: 1px solid white; margin-right: 50px; margin-top: 30px; margin-left: 20px;">
+    <div class="card-product-infos" style="border: 1px solid white;">
       <h2><%= comment.text %></h2>
       <p><%= @location.address %></p>
        <%= @albums.last.date %>

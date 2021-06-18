@@ -1,7 +1,8 @@
 #alinhamento {
-  display: flex;
+  // display: flex;
   justify-items: center;
-
+  align-content: center;
+  align-items: center;
 }
 
 .cards {
@@ -67,7 +68,7 @@ s
   .cards-itens {
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-content: space-around;
     align-items: center;
   }
@@ -127,24 +128,26 @@ s
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  // height: 120px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  height: 200px;
+  height: auto;
+  margin-bottom: 100px;
 }
 
 .card-product-home {
   overflow: hidden;
-  height: 120px;
+  height: 150px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   justify-items: center;
-  height: 200px;
-  margin-left: 26px;
-  margin-right: -7px;
-  margin-bottom: 25px;
+  
+  // height: 200px;
+  // margin-left: 26px;
+  // margin-right: -7px;
+  // margin-bottom: 60px;
 }
 
 .card-product-home h2  {
@@ -157,6 +160,9 @@ s
 
 .card-product-infos-home {
   padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+
 }
 
 #carouselExampleFade {
@@ -185,6 +191,8 @@ s
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 80%;
+  margin: auto;
 }
 
 
