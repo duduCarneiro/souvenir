@@ -17,7 +17,7 @@ puts 'creating fake user'
 first_user = User.create(password: '123456', email: 'ze@ninguem.com')
 
 puts 'creating fakes locations'
-places = [['Surf trip', 'Ipanema, Rio de Janeiro'], ['The biggest adventure', 'Avenue Montaigne, Paris'], ['My place', 'Les Invalides, Paris'], ['School trip', 'Notre Dame, Paris'], ['Amazing journey', 'Newlands, Capetown'], ['My first time abroad', 'Time Square, New York'], ['Honeymoon', 'Aoyama, Tokyo']]
+places = [['The biggest adventure', 'Avenue Montaigne, Paris'], ['My place', 'Les Invalides, Paris'], ['School trip', 'Notre Dame, Paris'], ['Surf trip', 'Ipanema, Rio de Janeiro'], ['Amazing journey', 'Newlands, Capetown'], ['My first time abroad', 'Time Square, New York'], ['Honeymoon', 'Aoyama, Tokyo']]
 
 count = 0
 places.each do |element|
@@ -28,77 +28,106 @@ places.each do |element|
 end
 
 puts 'creating fakes albums'
-images = ['https://source.unsplash.com/800x450/?ipanema,rio',
-            'https://source.unsplash.com/800x450/?montaigne,paris',
-            'https://source.unsplash.com/800x450/?lesinvalides,paris',
-            'https://source.unsplash.com/800x450/?notredame,paris',
-            'https://source.unsplash.com/800x450/?newlands,capetown',
-            'https://source.unsplash.com/800x450/?timesquare,newyork',
-            'https://source.unsplash.com/800x450/?aoyama,tokyo'
+
+images_montaigne = ['https://www.dreameratheart.org/wp-content/uploads/2019/12/dancing-in-rue-Mouffetard.jpg',
+        'https://images.unsplash.com/photo-1503127241807-fdc42d3acb95?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjI0MDQyMzAz&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600',
+        'http://cdn.cnn.com/cnnnext/dam/assets/200225162446-04-african-american-writers-artists-in-paris-deux-magots.jpg',
+        'https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2018/04/avanue-de-champs-elysees.jpg',
+        'https://images.unsplash.com/photo-1570118449326-1e20ac059784?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjI0MDQwNzUz&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600'
         ]
 
+images_invalide = ['https://www.motherofalltrips.com/wp-content/uploads/2013/04/Paris-with-kids-Invalides-armor.jpg',
+        'https://res.cloudinary.com/dii4d3v8r/image/upload/v1624044579/w12ep5xijipebwd7wlz8ng2p79j6.jpg',
+        'https://images.unsplash.com/photo-1607453998774-d533f65dac99?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjI0MDM3ODMy&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600',
+        'https://images.unsplash.com/photo-1504151932400-72d4384f04b3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjI0MDQyMTQz&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600',
+        'https://images.unsplash.com/photo-1582143565907-6b8c074be35e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjI0MDM4MTYz&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600'
+        ]
+        
+images_notredame = ['https://www.thelocal.fr/wp-content/uploads/2019/04/f41445a26f231a896a5ea3d92808ce4b29a8c9089eb15c5f03e859f608a8b547.jpg',
+        'https://viagemeturismo.abril.com.br/wp-content/uploads/2016/12/1134863761.jpg?quality=70&strip=info&w=680&h=453&crop=1',
+        'https://res.cloudinary.com/dii4d3v8r/image/upload/v1624044963/5tbsa5fr0h5tctp35w2wt9ljb5w8.jpg',
+        'https://f.i.uol.com.br/fotografia/2018/09/06/15362720845b91a6d461ee8_1536272084_3x2_md.jpg',
+        'https://www.catholicregister.org/media/k2/items/cache/087381c44d8fe74529d92a4430f72e21_XL.jpg'
+        ]
+
+images = ['https://source.unsplash.com/800x450/?ipanema,rio',
+        'https://source.unsplash.com/800x450/?newlands,capetown',
+        'https://source.unsplash.com/800x450/?timesquare,newyork',
+        'https://source.unsplash.com/800x450/?aoyama,tokyo'
+        ]
 sum = 0
-2.times do
+index_of_array_montaigne = 0
+index_of_array_invalide = 0
+index_of_array_notredame = 0
+
+5.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 0)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Montaigne, Paris"
+    
+    file = open(images_montaigne[index_of_array_montaigne])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    index_of_array_montaigne +=1
+    puts "(#{sum} of 24 done)"
+end
+
+
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 1)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Les Invalides, Paris"
+    file = open(images_invalide[index_of_array_invalide])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    index_of_array_invalide +=1
+    puts "(#{sum} of 24 done)"
+end
+
+5.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 2)
+    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Notre Dame, Paris"
+    file = open(images_notredame[index_of_array_notredame])
+    album.photos.attach(io: file, filename: 'some-image.jpg')
+    sum +=1
+    index_of_array_notredame +=1
+    puts "(#{sum} of 24 done)"
+end
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+2.times do
+    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 3)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Ipanema, Rio de Janeiro"
     file = open(images[0])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 38 done)"
-end
-
-10.times do
-    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 1)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Montaigne, Paris"
-    file = open(images[1])
-    album.photos.attach(io: file, filename: 'some-image.jpg')
-    sum +=1
-    puts "(#{sum} of 38 done)"
-end
-
-10.times do
-    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 2)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Les Invalides, Paris"
-    file = open(images[2])
-    album.photos.attach(io: file, filename: 'some-image.jpg')
-    sum +=1
-    puts "(#{sum} of 38 done)"
-end
-
-10.times do
-    album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 3)
-    puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Notre Dame, Paris"
-    file = open(images[3])
-    album.photos.attach(io: file, filename: 'some-image.jpg')
-    sum +=1
-    puts "(#{sum} of 38 done)"
+    puts "(#{sum} of 24 done)"
 end
 
 2.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 4)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- New Lands, Cape Town"
-    file = open(images[4])
+    file = open(images[1])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 38 done)"
+    puts "(#{sum} of 24 done)"
 end
 
 2.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 5)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Times Square, New York"
-    file = open(images[5])
+    file = open(images[2])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 38 done)"
+    puts "(#{sum} of 24 done)"
 end
 
 2.times do
     album = Album.create!(date: rand(24).months.ago, location_id: Location.first.id + 6)
     puts "album id: #{album.id}- date: #{album.date}- location: #{album.location_id}- Aoyama, Tokyo"
-    file = open(images[6])
+    file = open(images[3])
     album.photos.attach(io: file, filename: 'some-image.jpg')
     sum +=1
-    puts "(#{sum} of 38 done)"
+    puts "(#{sum} of 24 done)"
 end
 
 
