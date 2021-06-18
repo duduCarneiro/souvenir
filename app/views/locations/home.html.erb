@@ -40,7 +40,6 @@
 
 <% end %>
 
-
 <div class="cards-itens">
 
   <% if params[:query].present? %>
@@ -56,7 +55,7 @@
         <%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
         <% first_album_of_location = 0 %>
         <div id='carouselExampleFade<%=loc.id%>' class="carousel slide carousel-fade" data-ride="carousel">
-          <div class="carousel-inner">
+          <div class="carousel-inner" style="margin-bottom: 60px;">
             <% @albums.each do |album| %>
               <% if album.photos.attached? && album.location == loc%>
                 <% if first_album_of_location == 0 %>
@@ -143,7 +142,7 @@
                   <div class="carousel-item active">
                     <%= link_to location_path(comment.location) do %> 
                       <div class="card-product-home">
-                         <div class="card-product-infos-home" style="border: 1px solid white;"> <%# margin-right: 50px; margin-top: 30px; margin-left: 20px %>
+                        <div class="card-product-infos-home" style="border: 1px solid white;"> <%# margin-right: 50px; margin-top: 30px; margin-left: 20px %>
                           <h2><%= comment.text %></h2>
                           <p><%= loc.address %></p>
                           <%= @albums.last.date %>
@@ -184,6 +183,8 @@
 
   <% end %>
 </div>
+
+
 <%# .............................................................^^^^^^^^^^^^^^.............................................................................. %>
 <%# ........................................................JUST SHOWING AFTER A QUERY....................................................................... %>
 <%# ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// %>
