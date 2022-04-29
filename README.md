@@ -15,7 +15,7 @@ This was the final project presented on [Le Wagon coding bootcamp](https://www.l
 <br> 
 
 <p align="center">
-  <img src="./img/banner.jpg" alt="Size Limit CLI" width="738">
+  <img src="./img/1stpage.jpg" alt="30%" width="30%">
 </p>
 
 Made from scratch. A mobile-first app. Designed, implemented, and shipped to production, coded in Ruby on Rails.
@@ -48,7 +48,7 @@ Finally, after you choose a car and click on it, you will be redirected to the b
 - CSS;
 - JavaScript;
 - Cloudinary;
-- Mapbox;
+- Mapbox???????????;
 - Ruby on Rails;
 
 ## ⚠️ Credits
