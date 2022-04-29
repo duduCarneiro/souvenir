@@ -1,5 +1,5 @@
 <h1 align="center">
-  <br>Rent a car
+  <br>Souvenir app
 </h1>
 
 
@@ -9,7 +9,7 @@
 
 # 👨‍💻 About
 
-This was the first big project presented during [Le Wagon coding bootcamp](https://www.lewagon.com) 🔔! 
+This was the final project presented on [Le Wagon coding bootcamp](https://www.lewagon.com) 🔔! 
 <br>
 > *"Building an Airbnb clone from scratch in just five days is one of the most challenging and enjoyable moments of the entire bootcamp!⠀That’s the first time the students code in teams, learning to collaborate on Github using pull requests and deploying their apps on Heroku, using the same workflow as successful startups." (Le Wagon)*
 <br> 
@@ -18,7 +18,8 @@ This was the first big project presented during [Le Wagon coding bootcamp](https
   <img src="./img/banner.jpg" alt="Size Limit CLI" width="738">
 </p>
 
-It was made from scratch to build a MVP of AirBnB. In our project, we developed a web app where the users can easily get a car for just an hour or for a few days. As in the Airbnb concept, it allows anyone to create a free account so they can list their vehicles and rent unique cars anywhere in the world.
+Made from scratch. A mobile-first app. Designed, implemented, and shipped to production, coded in Ruby on Rails.
+In our project, we developed a web app where the users can easily get a car for just an hour or for a few days. As in the Airbnb concept, it allows anyone to create a free account so they can list their vehicles and rent unique cars anywhere in the world.
 
 ## 📚 Contents
 
@@ -29,7 +30,7 @@ It was made from scratch to build a MVP of AirBnB. In our project, we developed 
 
 ## 🚀 Get started
 
-you can access the app on: [rent-car-airbnb.herokuapp.com/](https://rent-car-airbnb.herokuapp.com/) 🚙.
+you can access the app on: [souvenir-app-lw.herokuapp.com/](https://souvenir-app-lw.herokuapp.com/) 🚙.
 
 ## ✍️ Usage and examples
 
