@@ -35,7 +35,7 @@ you can watch the demo of the product on: [Demo Day](https://youtu.be/Gsaq3tMb18
 
 ## ✍️ Usage and examples
 
-After the login, you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. 
+After the login (Fake "log in" with user `ze@ninguem.com` and password `123456`), you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. 
 
 On the home page, you will find a search bar where is possible to input a location, a specific date or both queries to be searched. It will list all the results associated with that. Let´s assume you are looking for your memories in Paris in 2019. The map at the top shows all memories pinned on their actual locations. Bellow they are showed by album:
 
