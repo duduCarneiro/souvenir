@@ -30,7 +30,7 @@ Our web app is a simple way to organize and remember experiences in life. It all
 
 ## 🚀 Get started
 
-you can access the app on: [souvenir-app-lw.herokuapp.com/](https://souvenir-app-lw.herokuapp.com/) 🚙. <br>
+you can access the app on: [souvenir-app-lw.herokuapp.com](https://souvenir-app-lw.herokuapp.com/) 🚙. <br>
 you can watch the demo of the product on: [Demo Day](https://youtu.be/Gsaq3tMb18o?t=771) 
 
 ## ✍️ Usage and examples
