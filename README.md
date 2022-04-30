@@ -44,7 +44,10 @@ On the home page, you will find a search bar where is possible to input a locati
 </p>
 If you choose one and click on it, you will be redirected to that album.
 
-If you have something new to add, you just have to click on the plus button that redirects you to another page where it is possible to add a new memory, with location and pictures. 
+<br>
+<br>
+
+When you have something new to add, you just have to click on the plus button that redirects you to another page where it is possible to add a new memory, with location and pictures. 
 
 <p align="center">
   <img src="./img/2stpage.jpg" alt="30%" width="30%">
@@ -58,6 +61,7 @@ If you have something new to add, you just have to click on the plus button that
 - Cloudinary;
 - Mapbox;
 - Ruby on Rails;
+- WebGL Earth API;
 
 ## ⚠️ Credits
 
