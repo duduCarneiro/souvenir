@@ -9,7 +9,7 @@
 
 # 👨‍💻 About
 
-This was the final project presented on the Demo Day at [Le Wagon coding bootcamp](https://www.lewagon.com) 🔔! 
+This was the final project presented on the [Demo Day](https://youtu.be/Gsaq3tMb18o?t=771) at [Le Wagon coding bootcamp](https://www.lewagon.com) 🔔! 
 <br>
 > *"Projects Phase is the ultimate experience of Le Wagon 9-weeks coding bootcamp: invent, pitch, design, code and deploy an original project in teams of 3 or 4 people during the two final weeks. On the last day of the bootcamp, our Wagoners will present their products at our hugely popular **Demo Day**!" (Le Wagon)*
 <br> 
@@ -31,6 +31,8 @@ Our web app is a simple way to organize and remember experiences in life. It all
 ## 🚀 Get started
 
 you can access the app on: [souvenir-app-lw.herokuapp.com/](https://souvenir-app-lw.herokuapp.com/) 🚙.
+
+you can watch the demo of the product on: [Demo Day](https://youtu.be/Gsaq3tMb18o?t=771) 
 
 ## ✍️ Usage and examples
 
