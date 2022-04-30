@@ -30,18 +30,18 @@ Our web app is a simple way to organize and remember experiences in life. It all
 
 ## 🚀 Get started
 
-you can access the app on: [souvenir-app-lw.herokuapp.com/](https://souvenir-app-lw.herokuapp.com/) 🚙.
-
+you can access the app on: [souvenir-app-lw.herokuapp.com/](https://souvenir-app-lw.herokuapp.com/) 🚙. <br>
 you can watch the demo of the product on: [Demo Day](https://youtu.be/Gsaq3tMb18o?t=771) 
 
 ## ✍️ Usage and examples
 
-After the login, you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. Clicking on the plus button redirects you to another page where it is possible to add a new memory. 
+After the login, you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. Clicking on the plus button redirects you to another page where it is possible to add a new memory, with location and pictures. 
 
+<p align="center">
+  <img src="./img/2stpage.jpg" alt="30%" width="30%">
+</p>
 
-
-xxxxxxxxxxxxxxxxxxIf you scroll down on the landing page, you will find a search bar where is possible to input a location or car model to be searched. As a user, you can log in to rent an available vehicle or to let your car be accessible to rent.xxxxxxxxxxxxxxx
-
+On the home page, you will find a search bar where is possible to input a location or a specific date to be searched. It will list all the results associated with that.
 <p align="center">
   <img src="./img/search bar.jpg" alt="Size Limit CLI" width="738">
 </p>
@@ -54,7 +54,7 @@ Finally, after you choose a car and click on it, you will be redirected to the b
 - CSS;
 - JavaScript;
 - Cloudinary;
-- Mapbox???????????;
+- Mapbox;
 - Ruby on Rails;
 
 ## ⚠️ Credits
