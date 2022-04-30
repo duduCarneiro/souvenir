@@ -41,12 +41,14 @@ After the login, you can count on Dr. Brown's avatar at the bottom right to help
   <img src="./img/2stpage.jpg" alt="30%" width="30%">
 </p>
 
-On the home page, you will find a search bar where is possible to input a location or a specific date to be searched. It will list all the results associated with that.
+On the home page, you will find a search bar where is possible to input a location, a specific date or both queries to be searched. It will list all the results associated with that. Let´s assume you are looking for your memories in Paris in 2019:
+
 <p align="center">
-  <img src="./img/search bar.jpg" alt="Size Limit CLI" width="738">
+  <img src="./img/3stpage.jpg" alt="30%" width="30%">
 </p>
-The map on the right side shows all options pinned on their actual locations. 
-Finally, after you choose a car and click on it, you will be redirected to the booking page to fill in a form with some information about your rent.
+
+The map at the top shows all memories pinned on their actual locations. Bellow they are showed by album.
+If you choose one and click on it, you will be redirected to that album.
 
 ## ⚙️ Built using
 
