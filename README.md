@@ -9,9 +9,9 @@
 
 # 👨‍💻 About
 
-This was the final project presented on [Le Wagon coding bootcamp](https://www.lewagon.com) 🔔! 
+This was the final project presented on the Demo Day at [Le Wagon coding bootcamp](https://www.lewagon.com) 🔔! 
 <br>
-> *"Building an Airbnb clone from scratch in just five days is one of the most challenging and enjoyable moments of the entire bootcamp!⠀That’s the first time the students code in teams, learning to collaborate on Github using pull requests and deploying their apps on Heroku, using the same workflow as successful startups." (Le Wagon)*
+> *"Projects Phase is the ultimate experience of Le Wagon 9-weeks coding bootcamp: invent, pitch, design, code and deploy an original project in teams of 3 or 4 people during the two final weeks. On the last day of the bootcamp, our Wagoners will present their products at our hugely popular **Demo Day**!" (Le Wagon)*
 <br> 
 
 <p align="center">
@@ -19,7 +19,7 @@ This was the final project presented on [Le Wagon coding bootcamp](https://www.l
 </p>
 
 Made from scratch. A mobile-first app. Designed, implemented, and shipped to production, coded in Ruby on Rails.
-In our project, we developed a web app where the users can easily get a car for just an hour or for a few days. As in the Airbnb concept, it allows anyone to create a free account so they can list their vehicles and rent unique cars anywhere in the world.
+Our web app is a simple way to organize and remember experiences in life. It allows the user to keep memories stored in a safe and easy way to access, since they can navigate through time and space to find one.
 
 ## 📚 Contents
 
@@ -34,7 +34,11 @@ you can access the app on: [souvenir-app-lw.herokuapp.com/](https://souvenir-app
 
 ## ✍️ Usage and examples
 
-If you scroll down on the landing page, you will find a search bar where is possible to input a location or car model to be searched. As a user, you can log in to rent an available vehicle or to let your car be accessible to rent.
+After the login, you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. Clicking on the plus button redirects you to another page where it is possible to add a new memory. 
+
+
+
+xxxxxxxxxxxxxxxxxxIf you scroll down on the landing page, you will find a search bar where is possible to input a location or car model to be searched. As a user, you can log in to rent an available vehicle or to let your car be accessible to rent.xxxxxxxxxxxxxxx
 
 <p align="center">
   <img src="./img/search bar.jpg" alt="Size Limit CLI" width="738">
