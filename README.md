@@ -26,7 +26,7 @@ Our web app is a simple way to organize and remember experiences in life. It all
 - [Get started](#-get-started)
 - [Usage and examples](#-usage-and-examples)
 - [Built using](#-built-using)
-- [Credits](#-get-started)
+- [Credits](#-credits)
 
 ## 🚀 Get started
 
