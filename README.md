@@ -4,7 +4,7 @@
 
 
 <p align="center">
-  <img src="./img/hand.png" alt="20%" width="20%">
+  <img src="./img/hand - Copia.png" alt="20%" width="20%">
 </p>
 
 # 👨‍💻 About
