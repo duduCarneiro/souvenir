@@ -35,20 +35,20 @@ you can watch the demo of the product on: [Demo Day](https://youtu.be/Gsaq3tMb18
 
 ## ✍️ Usage and examples
 
-After the login, you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. Clicking on the plus button redirects you to another page where it is possible to add a new memory, with location and pictures. 
+After the login, you can count on Dr. Brown's avatar at the bottom right to help you navigate through the app. 
 
-<p align="center">
-  <img src="./img/2stpage.jpg" alt="30%" width="30%">
-</p>
-
-On the home page, you will find a search bar where is possible to input a location, a specific date or both queries to be searched. It will list all the results associated with that. Let´s assume you are looking for your memories in Paris in 2019:
+On the home page, you will find a search bar where is possible to input a location, a specific date or both queries to be searched. It will list all the results associated with that. Let´s assume you are looking for your memories in Paris in 2019. The map at the top shows all memories pinned on their actual locations. Bellow they are showed by album:
 
 <p align="center">
   <img src="./img/3stpage.jpg" alt="30%" width="30%">
 </p>
-
-The map at the top shows all memories pinned on their actual locations. Bellow they are showed by album.
 If you choose one and click on it, you will be redirected to that album.
+
+If you have something new to add, you just have to click on the plus button that redirects you to another page where it is possible to add a new memory, with location and pictures. 
+
+<p align="center">
+  <img src="./img/2stpage.jpg" alt="30%" width="30%">
+</p>
 
 ## ⚙️ Built using
 
